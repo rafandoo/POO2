@@ -1,15 +1,27 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Funcionario {
+public class Funcionario extends Usuario{
 
 	//CONSTRUTORES
+	public Funcionario(String usuario, String senha) {
+		super(usuario, senha);
+	}
 	
+	public Funcionario(String nome, String email, String usuario, String senha) {
+		super(usuario, senha);
+		setNome(nome);
+		setEmail(email);
+		
+		
+	}
+
 	//ATRIBUTOS
 	private String nome;
 	private String email;
 	private List<Integer> valorHora = new ArrayList<>();
 	private List<Integer> horas_trab = new ArrayList<>();
+	private String data_nascimento; //TRABALHAR COM
 	
 	
 	//GETTER E SETTERS 
@@ -45,6 +57,12 @@ public class Funcionario {
 		this.horas_trab = horas_trab;
 	}
 	
+	public String getData_nascimento() {
+		return data_nascimento;
+	}
+	public void setData_nascimento(String data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
 
 	//METODOS
 	public boolean addValorHora(int hora) {
