@@ -18,9 +18,16 @@ public class Funcionario extends Usuario{
 	//ATRIBUTOS
 	private String nome;
 	private String email;
-	private List<Integer> valorHora = new ArrayList<>();
-	private List<Integer> horas_trab = new ArrayList<>();
-	private String data_nascimento; //TRABALHAR COM
+	//SEXO
+	
+	//REVER SE CLASSE A PARTE
+	private List<Integer> valorHora = new ArrayList<Integer>();
+	private List<Integer> horas_trab = new ArrayList<Integer>();
+	private List<Double> salarios = new ArrayList<Double>();
+	
+	
+	//TRABALHAR COM
+	private String data_nascimento; 
 	
 	//GETTER E SETTERS 
 	public String getNome() {
@@ -66,7 +73,13 @@ public class Funcionario extends Usuario{
 	DecimalFormat formatar = new DecimalFormat("R$ #,##0.00");
 	
 	//METODOS
-	public boolean addValorHora(int valor) {
+	public void addGeral(int valor, int horas) {
+		addValorHora(valor);
+		addHoras_trab(horas);
+		addSalario(valor, horas);
+	}
+	
+	private boolean addValorHora(int valor) {
 		return valorHora.add(valor);
 	}
 	
@@ -78,7 +91,7 @@ public class Funcionario extends Usuario{
 		return msg;
 	}
 	
-	public boolean addHoras_trab(int horas) {
+	private boolean addHoras_trab(int horas) {
 		return horas_trab.add(horas);
 	}
 	
@@ -89,5 +102,15 @@ public class Funcionario extends Usuario{
 		}
 		return msg;
 	}
+	
+	private boolean addSalario(int valor, int horas) {
+		double total = valor * horas;
+		return salarios.add(total);
+	}
+	
+	
+	
+	
+	
 	
 }
