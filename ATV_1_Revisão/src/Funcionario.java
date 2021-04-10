@@ -1,6 +1,6 @@
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Funcionario extends Usuario{
@@ -21,7 +21,7 @@ public class Funcionario extends Usuario{
 	//SEXO
 	
 	//REVER SE CLASSE A PARTE
-	private List<Integer> valorHora = new ArrayList<Integer>();
+	private List<Float> valorHora = new ArrayList<Float>();
 	private List<Integer> horas_trab = new ArrayList<Integer>();
 	private List<Double> salarios = new ArrayList<Double>();
 	
@@ -48,10 +48,10 @@ public class Funcionario extends Usuario{
 		}
 	}
 	
-	public List<Integer> getValorHora() {
+	public List<Float> getValorHora() {
 		return valorHora;
 	}
-	public void setValorHora(List<Integer> valorHora) {
+	public void setValorHora(List<Float> valorHora) {
 		this.valorHora = valorHora;
 	}
 	
@@ -73,20 +73,22 @@ public class Funcionario extends Usuario{
 	DecimalFormat formatar = new DecimalFormat("R$ #,##0.00");
 	
 	//METODOS
-	public void addGeral(int valor, int horas) {
+	
+	//ESTUDAR CLASSE SEPARADA DE SALARIO
+	public void addGeral(float valor, int horas) {
 		addValorHora(valor);
 		addHoras_trab(horas);
 		addSalario(valor, horas);
 	}
 	
-	private boolean addValorHora(int valor) {
+	private boolean addValorHora(float valor) {
 		return valorHora.add(valor);
 	}
 	
 	public String imprime_valorH() {
 		String msg = "Valor hora: ";
-		for (Integer integer : valorHora) {
-			msg += formatar.format(integer) + " | ";
+		for (Float valor : valorHora) {
+			msg += formatar.format(valor) + " | ";
 		}
 		return msg;
 	}
@@ -103,12 +105,28 @@ public class Funcionario extends Usuario{
 		return msg;
 	}
 	
-	private boolean addSalario(int valor, int horas) {
+	private boolean addSalario(float valor, int horas) {
 		double total = valor * horas;
 		return salarios.add(total);
 	}
 	
+	public String imprime_Salarios() {
+		String msg = ""; 
+		for(int i = 0; i < salarios.size(); i++) {
+			msg += "Salário " + (i+1) + ": "+ formatar.format(salarios.get(i)) + "\n";
+		}
+		return msg;
+	}
 	
+	public String media_salario() {
+		double total_salario = 0;
+		if(!salarios.isEmpty()) {
+			for(int i = 0; i < salarios.size(); i++) {
+				total_salario += salarios.get(i);
+			}
+		}
+		return ("Média salarial: " + formatar.format(total_salario/salarios.size()));
+	}
 	
 	
 	
