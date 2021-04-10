@@ -1,3 +1,5 @@
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +9,10 @@ public class Funcionario extends Usuario{
 	public Funcionario(String usuario, String senha) {
 		super(usuario, senha);
 	}
-	
 	public Funcionario(String nome, String email, String usuario, String senha) {
 		super(usuario, senha);
 		setNome(nome);
-		setEmail(email);
-		
-		
+		setEmail(email);		
 	}
 
 	//ATRIBUTOS
@@ -22,7 +21,6 @@ public class Funcionario extends Usuario{
 	private List<Integer> valorHora = new ArrayList<>();
 	private List<Integer> horas_trab = new ArrayList<>();
 	private String data_nascimento; //TRABALHAR COM
-	
 	
 	//GETTER E SETTERS 
 	public String getNome() {
@@ -64,15 +62,32 @@ public class Funcionario extends Usuario{
 		this.data_nascimento = data_nascimento;
 	}
 
+	//INSTANCIAS
+	DecimalFormat formatar = new DecimalFormat("R$ #,##0.00");
+	
 	//METODOS
-	public boolean addValorHora(int hora) {
-		return valorHora.add(hora);
+	public boolean addValorHora(int valor) {
+		return valorHora.add(valor);
 	}
 	
-	public void imprime_lista() {
+	public String imprime_valorH() {
+		String msg = "Valor hora: ";
 		for (Integer integer : valorHora) {
-			System.out.println(integer);
+			msg += formatar.format(integer) + " | ";
 		}
+		return msg;
+	}
+	
+	public boolean addHoras_trab(int horas) {
+		return horas_trab.add(horas);
+	}
+	
+	public String imprime_HorasT() {
+		String msg = "Horas Trabalhadas: ";
+		for (Integer integer : horas_trab) {
+			msg += integer + " | ";
+		}
+		return msg;
 	}
 	
 }
