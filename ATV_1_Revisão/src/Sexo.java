@@ -2,7 +2,7 @@
 public enum Sexo {
 
 	//ENUMS
-	FEMININO (1), MASCULINO(2), NAO_BINARIO(3);
+	FEMININO (1), MASCULINO(2);
 	
 	//CONSTRUTOR
 	private Sexo(int cod) {

@@ -14,6 +14,7 @@ public class Funcionario extends Usuario{
 	SimpleDateFormat sdf_ano = new SimpleDateFormat("y");
 	
 	Calendar data_nasc = new GregorianCalendar();
+	Calendar data_atual = Calendar.getInstance();
 	
 	//CONSTRUTORES
 	public Funcionario(String usuario, String senha) throws NoSuchAlgorithmException {
@@ -28,12 +29,7 @@ public class Funcionario extends Usuario{
 	//ATRIBUTOS
 	private String nome;
 	private String email;
-	//SEXO
-	
-	//REVER SE CLASSE A PARTE
-	private List<Float> valorHora = new ArrayList<Float>();
-	private List<Integer> horas_trab = new ArrayList<Integer>();
-	private List<Double> salarios = new ArrayList<Double>();
+	private Sexo sexo;
 	
 	//GETTER E SETTERS 
 	public String getNome() {
@@ -54,25 +50,40 @@ public class Funcionario extends Usuario{
 		}
 	}
 	
-	public List<Float> getValorHora() {
-		return valorHora;
+	public Sexo getSexo() {
+		return sexo;
 	}
-	public void setValorHora(List<Float> valorHora) {
-		this.valorHora = valorHora;
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
 	}
-	
-	public List<Integer> getHoras_trab() {
-		return horas_trab;
-	}
-	public void setHoras_trab(List<Integer> horas_trab) {
-		this.horas_trab = horas_trab;
-	}
-
-
 	
 	//METODOS
 	public void define_dataNasc(int ano, int mes, int dia) {
 		data_nasc.set(ano, (mes-1), dia);
+	}
+	
+	public int calculaIdade() {
+		int idade = 0;
+		if(data_atual.get(Calendar.MONTH) >= data_nasc.get(Calendar.MONTH)) {
+			if(data_atual.get(Calendar.DAY_OF_MONTH) >= data_nasc.get(Calendar.DAY_OF_MONTH)) {
+				idade = (data_atual.get(Calendar.YEAR) - data_nasc.get(Calendar.YEAR));
+			} else {
+				idade = (data_atual.get(Calendar.YEAR) - data_nasc.get(Calendar.YEAR) - 1);
+			}
+		} else {
+			idade = (data_atual.get(Calendar.YEAR) - data_nasc.get(Calendar.YEAR) - 1);
+		}
+		return idade;
+	}
+	
+	public int aposentadoria() {
+		int ano = data_nasc.get(Calendar.YEAR);
+		if(sexo.getCod() == 1) {
+			ano += 62;
+		} else if(sexo.getCod() == 2) {
+			ano += 65;
+		}
+		return ano;
 	}
 	
 	//ESTUDAR CLASSE SEPARADA DE SALARIO
@@ -128,6 +139,7 @@ public class Funcionario extends Usuario{
 		}
 		return ("Média salarial: " + df.format(total_salario/salarios.size()));
 	}
+	//SUPER 
 	
 	//TO TRING
 	@Override
@@ -136,6 +148,8 @@ public class Funcionario extends Usuario{
 		builder.append("=== Funcionario ===");
 		builder.append("\nNome: ");
 		builder.append(nome);
+		builder.append("\nSexo: ");
+		builder.append(getSexo());
 		builder.append("\nEmail: ");
 		builder.append(email);
 		builder.append("\nData de nascimento: ");
@@ -154,12 +168,19 @@ public class Funcionario extends Usuario{
 		builder.append("\nAnos trabalhados: ");
 		builder.append("\nFração de meses trabalhados: ");
 		builder.append("\nAno dos 35 anos de contribuição: ");
+		builder.append(aposentadoria() + 10);
 		builder.append("\nAno idade minima: ");
+		builder.append(aposentadoria());
 		builder.append("\nAno nascimento: ");
 		builder.append(sdf_ano.format(data_nasc.getTime()));
+		builder.append("\nAno aposentadoria: ");
+		builder.append(aposentadoria() + 10);
 		builder.append("\nIdade aposentadoria: ");
+		builder.append((aposentadoria() + 10) - data_nasc.get(Calendar.YEAR));
 		builder.append("\nIdade atual: ");
+		builder.append(calculaIdade());
 		builder.append("\nAnos faltantes para se aposentar: ");
+		builder.append((aposentadoria() + 10) - data_nasc.get(Calendar.YEAR) - calculaIdade());
 		return builder.toString();
 	}
 
