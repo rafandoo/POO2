@@ -1,5 +1,4 @@
 import java.security.NoSuchAlgorithmException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
@@ -9,7 +8,6 @@ import java.text.SimpleDateFormat;
 public class Funcionario extends Usuario{
 
 	//INSTANCIAS
-	DecimalFormat df = new DecimalFormat("R$ #,##0.00");
 	SimpleDateFormat sdf_completo = new SimpleDateFormat("dd/MM/yyyy");
 	SimpleDateFormat sdf_ano = new SimpleDateFormat("y");
 	
@@ -85,62 +83,7 @@ public class Funcionario extends Usuario{
 		}
 		return ano;
 	}
-	
-	//ESTUDAR CLASSE SEPARADA DE SALARIO
-	public void addGeral(float valor, int horas) {
-		addValorHora(valor);
-		addHoras_trab(horas);
-		addSalario(valor, horas);
-	}
-	
-	private boolean addValorHora(float valor) {
-		return valorHora.add(valor);
-	}
-	
-	public String imprime_valorH() {
-		String msg = "Valor hora: ";
-		for (Float valor : valorHora) {
-			msg += df.format(valor) + " | ";
-		}
-		return msg;
-	}
-	
-	private boolean addHoras_trab(int horas) {
-		return horas_trab.add(horas);
-	}
-	
-	public String imprime_HorasT() {
-		String msg = "Horas Trabalhadas: ";
-		for (Integer integer : horas_trab) {
-			msg += integer + " | ";
-		}
-		return msg;
-	}
-	
-	private boolean addSalario(float valor, int horas) {
-		double total = valor * horas;
-		return salarios.add(total);
-	}
-	
-	public String imprime_Salarios() {
-		String msg = ""; 
-		for(int i = 0; i < salarios.size(); i++) {
-			msg += "Salário " + (i+1) + ": "+ df.format(salarios.get(i)) + "\n";
-		}
-		return msg;
-	}
-	
-	public String media_salario() {
-		double total_salario = 0;
-		if(!salarios.isEmpty()) {
-			for(int i = 0; i < salarios.size(); i++) {
-				total_salario += salarios.get(i);
-			}
-		}
-		return ("Média salarial: " + df.format(total_salario/salarios.size()));
-	}
-	//SUPER 
-	
+
 	//TO TRING
 	@Override
 	public String toString() {
@@ -158,15 +101,12 @@ public class Funcionario extends Usuario{
 		builder.append(getUsuario());
 		builder.append("\nSenha: ");
 		builder.append(getSenha());
-		builder.append("\n" + imprime_valorH());
+		/*builder.append("\n" + imprime_valorH());
 		builder.append("\n" + imprime_HorasT());
 		builder.append("\n" + imprime_Salarios());
-		builder.append(media_salario());
+		builder.append(media_salario());*/
 		//maior salario
 		//menor salario
-		builder.append("\nMeses trabalhados: ");
-		builder.append("\nAnos trabalhados: ");
-		builder.append("\nFração de meses trabalhados: ");
 		builder.append("\nAno dos 35 anos de contribuição: ");
 		builder.append(aposentadoria() + 10);
 		builder.append("\nAno idade minima: ");
