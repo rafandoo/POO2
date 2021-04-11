@@ -1,7 +1,9 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
 
 public class Funcionario extends Usuario{
 
@@ -24,10 +26,6 @@ public class Funcionario extends Usuario{
 	private List<Float> valorHora = new ArrayList<Float>();
 	private List<Integer> horas_trab = new ArrayList<Integer>();
 	private List<Double> salarios = new ArrayList<Double>();
-	
-	
-	//TRABALHAR COM
-	private String data_nascimento; 
 	
 	//GETTER E SETTERS 
 	public String getNome() {
@@ -70,9 +68,15 @@ public class Funcionario extends Usuario{
 	}
 
 	//INSTANCIAS
-	DecimalFormat formatar = new DecimalFormat("R$ #,##0.00");
+	DecimalFormat df = new DecimalFormat("R$ #,##0.00");
+	SimpleDateFormat sdf = new SimpleDateFormat("y");
+	
+	Calendar data = new GregorianCalendar();
 	
 	//METODOS
+	public void data_nasc(int ano, int mes, int dia) {
+		data.set(ano, (mes-1), dia);
+	}
 	
 	//ESTUDAR CLASSE SEPARADA DE SALARIO
 	public void addGeral(float valor, int horas) {
@@ -88,7 +92,7 @@ public class Funcionario extends Usuario{
 	public String imprime_valorH() {
 		String msg = "Valor hora: ";
 		for (Float valor : valorHora) {
-			msg += formatar.format(valor) + " | ";
+			msg += df.format(valor) + " | ";
 		}
 		return msg;
 	}
@@ -113,7 +117,7 @@ public class Funcionario extends Usuario{
 	public String imprime_Salarios() {
 		String msg = ""; 
 		for(int i = 0; i < salarios.size(); i++) {
-			msg += "Salário " + (i+1) + ": "+ formatar.format(salarios.get(i)) + "\n";
+			msg += "Salário " + (i+1) + ": "+ df.format(salarios.get(i)) + "\n";
 		}
 		return msg;
 	}
@@ -125,10 +129,12 @@ public class Funcionario extends Usuario{
 				total_salario += salarios.get(i);
 			}
 		}
-		return ("Média salarial: " + formatar.format(total_salario/salarios.size()));
+		return ("Média salarial: " + df.format(total_salario/salarios.size()));
 	}
 	
-	
+	public void teste() {
+		System.out.println(sdf.format(data.getTime()));
+	}
 	
 	
 }

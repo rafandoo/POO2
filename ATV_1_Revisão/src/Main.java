@@ -17,6 +17,11 @@ public class Main {
 		System.out.println(f.media_salario());
 		
 		System.out.println(f.crip_senha());
+		
+		System.out.println("\n\n");
+		f.data_nasc(2002, 6, 5);
+		
+		f.teste();
 	}
 
 }
