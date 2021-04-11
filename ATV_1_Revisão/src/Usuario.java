@@ -1,13 +1,14 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Iterator;
 
 public class Usuario {
 
 	//CONSTRUTORES
-	public Usuario(String usuario, String senha) {
+	public Usuario(String usuario, String senha) throws NoSuchAlgorithmException {
 		addUsuario(usuario, senha);
+		crip_senha();
 	}
+	
 	//ATRIBUTOS
 	private String usuario;
 	private String senha;
@@ -40,17 +41,16 @@ public class Usuario {
 			setUsuario(usuario);
 			setSenha(senha);
 			return true;
-		}
-		
+		}	
 	}
-	public String crip_senha() throws NoSuchAlgorithmException {
+	
+	private void crip_senha() throws NoSuchAlgorithmException {
 		MessageDigest algotithm = MessageDigest.getInstance("SHA1");
 		byte messageDigest[] = algotithm.digest(getSenha().getBytes());
 		StringBuffer sb = new StringBuffer();
 		for(int i = 0; i < messageDigest.length; i++) {
 			sb.append(Integer.toString((messageDigest[i] & 0xff) + 0x100, 16).substring(1));
 		}
-		return sb.toString();
+		setSenha(sb.toString());
 	}
-	
 }
