@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Salario {
@@ -15,6 +16,8 @@ public class Salario {
 	private List<Integer> horas_trab = new ArrayList<Integer>();
 	private List<Double> salarios = new ArrayList<Double>();
 	
+	private List<Double> maiores_salarios = new ArrayList<Double>();
+	
 	//GETTER E SETTER
 	public int getMesesTrab() {
 		return mesesTrab;
@@ -27,8 +30,8 @@ public class Salario {
 	public void addSalario(float valor, int horas) {
 		valorHora.add(valor);
 		horas_trab.add(horas);
-		double total = valor * horas;
-		salarios.add(total);
+		salarios.add((double) (valor * horas));
+		maiores_salarios.add((double) valor * horas);
 		mesesTrab++;
 	}
 	
@@ -56,23 +59,38 @@ public class Salario {
 		return msg;
 	}
 	
-	public String media_salario() {
-		double total_salario = 0;
+	public double total_salario() {
+		double total = 0;
 		if(!salarios.isEmpty()) {
 			for(int i = 0; i < salarios.size(); i++) {
-				total_salario += salarios.get(i);
+				total += salarios.get(i);
 			}
 		}
-		return ("Média salarial: " + df.format(total_salario/salarios.size()));
+		return (total);
+	}
+	
+	public double media_salario() {
+		return (total_salario()/salarios.size());
 	}
 
-	
 	public int anos_trab() {
 		return (int) (getMesesTrab() / 12);
 	}
 	
 	public int fracao_meses() {
-		return (getMesesTrab()%12);
+		return (getMesesTrab() % 12);
+	}
+	
+	public void maiores_salarios() {
+		maiores_salarios.sort(null);
+	}
+	
+	public void menores_salarios() {
+		maiores_salarios.sort(Collections.reverseOrder());
+	}
+
+	public void saidaSalario(int num) {
+		
 	}
 	
 	@Override
@@ -82,7 +100,10 @@ public class Salario {
 		builder.append("\n" + imprime_valorH());
 		builder.append("\n" + imprime_HorasT());
 		builder.append("\n" + imprime_Salarios());
-		builder.append(media_salario());
+		builder.append("Total de salarios: ");
+		builder.append(df.format(total_salario()));
+		builder.append("\nMédia salarial: ");
+		builder.append(df.format(media_salario()));
 		builder.append("\nMeses trabalhados: ");
 		builder.append(getMesesTrab());
 		builder.append("\nAnos trabalhados: ");
@@ -91,7 +112,10 @@ public class Salario {
 		builder.append(fracao_meses());
 		builder.append("\nAnos e meses trabalhados: ");
 		builder.append(anos_trab() + " ano(s) e " + fracao_meses() + " mes(es)");
-		
+		builder.append("\nMaiores salarios: ");
+		builder.append(false);
+		builder.append("\n\nMenores salarios: ");
+		builder.append(maiores_salarios);
 		return builder.toString();
 	}
 }

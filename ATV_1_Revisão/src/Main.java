@@ -13,8 +13,11 @@ public class Main {
 		
 		s.addSalario(10.1f, 5);
 		s.addSalario(2.22f, 6);
+		s.addSalario(25, 32);
+		s.addSalario(96.1f, 45);
+		s.addSalario(9, 1);
 		
-		
+
 		System.out.println(f);
 		System.out.println(s);
 	}
