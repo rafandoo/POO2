@@ -14,9 +14,8 @@ public class Salario {
 	//LISTAS
 	private List<Float> valorHora = new ArrayList<Float>();
 	private List<Integer> horas_trab = new ArrayList<Integer>();
-	private List<Double> salarios = new ArrayList<Double>();
-	
-	private List<Double> maiores_salarios = new ArrayList<Double>();
+	private List<Double> salario = new ArrayList<Double>();
+	private List<Double> lista_salarios = new ArrayList<Double>();
 	
 	//GETTER E SETTER
 	public int getMesesTrab() {
@@ -30,47 +29,51 @@ public class Salario {
 	public void addSalario(float valor, int horas) {
 		valorHora.add(valor);
 		horas_trab.add(horas);
-		salarios.add((double) (valor * horas));
-		maiores_salarios.add((double) valor * horas);
+		salario.add((double) (valor * horas));
+		lista_salarios.add((double) valor * horas);
 		mesesTrab++;
 	}
 	
 	public String imprime_valorH() {
-		String msg = "Valor hora: ";
+		int i = 1;
+		String msg = "";
 		for (Float valor : valorHora) {
-			msg += df.format(valor) + " | ";
+			msg += "(" + i + ") " + df.format(valor) + " | ";
+			i++;
 		}
 		return msg;
 	}
 	
 	public String imprime_HorasT() {
-		String msg = "Horas Trabalhadas: ";
-		for (Integer integer : horas_trab) {
-			msg += integer + " | ";
+		int i = 1;
+		String msg = "";
+		for (Integer valor : horas_trab) {
+			msg += "(" + i + ") " + valor + " | ";
+			i++;
 		}
 		return msg;
 	}
 	
 	public String imprime_Salarios() {
 		String msg = ""; 
-		for(int i = 0; i < salarios.size(); i++) {
-			msg += "Salário " + (i+1) + ": "+ df.format(salarios.get(i)) + "\n";
+		for(int i = 0; i < salario.size(); i++) {
+			msg += "Salário " + (i+1) + ": "+ df.format(salario.get(i)) + "\n";
 		}
 		return msg;
 	}
 	
 	public double total_salario() {
 		double total = 0;
-		if(!salarios.isEmpty()) {
-			for(int i = 0; i < salarios.size(); i++) {
-				total += salarios.get(i);
+		if(!salario.isEmpty()) {
+			for(int i = 0; i < salario.size(); i++) {
+				total += salario.get(i);
 			}
 		}
 		return (total);
 	}
 	
 	public double media_salario() {
-		return (total_salario()/salarios.size());
+		return (total_salario()/salario.size());
 	}
 
 	public int anos_trab() {
@@ -80,27 +83,36 @@ public class Salario {
 	public int fracao_meses() {
 		return (getMesesTrab() % 12);
 	}
-	
-	public void maiores_salarios() {
-		maiores_salarios.sort(null);
-	}
-	
-	public void menores_salarios() {
-		maiores_salarios.sort(Collections.reverseOrder());
-	}
 
-	public void saidaSalario(int num) {
-		
+	public String menores_salarios(int valor) {
+		String msg = "Menores salarios: [indice de busca (" + valor + ")]: ";
+		lista_salarios.sort(null);
+		for(int i = 0; i < valor; i++) {
+			msg += df.format(lista_salarios.get(i)) + " | ";
+		}
+		return (msg);
 	}
 	
+	public String maiores_salarios(int valor) {
+		String msg = "Maiores salarios: [indice de busca (" + valor + ")]: ";
+		lista_salarios.sort(Collections.reverseOrder());
+		for(int i = 0; i < valor; i++) {
+			msg += df.format(lista_salarios.get(i)) + " | ";
+		}
+		return (msg);
+	}
+	
+	//TO STRING
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("=== Salario ===");
-		builder.append("\n" + imprime_valorH());
-		builder.append("\n" + imprime_HorasT());
+		builder.append("\n===   Dados salários   ===");
 		builder.append("\n" + imprime_Salarios());
-		builder.append("Total de salarios: ");
+		builder.append("Valor hora: ");
+		builder.append(imprime_valorH());
+		builder.append("\nHoras Trabalhadas: ");
+		builder.append(imprime_HorasT());
+		builder.append("\nTotal de salarios: ");
 		builder.append(df.format(total_salario()));
 		builder.append("\nMédia salarial: ");
 		builder.append(df.format(media_salario()));
@@ -112,10 +124,6 @@ public class Salario {
 		builder.append(fracao_meses());
 		builder.append("\nAnos e meses trabalhados: ");
 		builder.append(anos_trab() + " ano(s) e " + fracao_meses() + " mes(es)");
-		builder.append("\nMaiores salarios: ");
-		builder.append(false);
-		builder.append("\n\nMenores salarios: ");
-		builder.append(maiores_salarios);
 		return builder.toString();
 	}
 }

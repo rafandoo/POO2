@@ -3,14 +3,14 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
 
-public class Funcionario extends Usuario{
+public class Funcionario extends Usuario {
 
 	//INSTANCIAS
 	SimpleDateFormat sdf_completo = new SimpleDateFormat("dd/MM/yyyy");
 	SimpleDateFormat sdf_ano = new SimpleDateFormat("y");
-	
 	Calendar data_nasc = new GregorianCalendar();
 	Calendar data_atual = Calendar.getInstance();
+	Salario s = new Salario();
 	
 	//CONSTRUTORES
 	public Funcionario(String usuario, String senha) throws NoSuchAlgorithmException {
@@ -26,6 +26,7 @@ public class Funcionario extends Usuario{
 	private String nome;
 	private String email;
 	private Sexo sexo;
+	private Salario salario;
 	
 	//GETTER E SETTERS 
 	public String getNome() {
@@ -51,6 +52,13 @@ public class Funcionario extends Usuario{
 	}
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
+	}
+	
+	public Salario getSalario() {
+		return salario;
+	}
+	public void setSalario(Salario salario) {
+		this.salario = salario;
 	}
 	
 	//METODOS
@@ -82,11 +90,11 @@ public class Funcionario extends Usuario{
 		return ano;
 	}
 
-	//TO TRING
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("=== Funcionario ===");
+		builder.append("===   Dados funcionario   ===");
 		builder.append("\nNome: ");
 		builder.append(nome);
 		builder.append("\nSexo: ");
@@ -99,12 +107,7 @@ public class Funcionario extends Usuario{
 		builder.append(getUsuario());
 		builder.append("\nSenha: ");
 		builder.append(getSenha());
-		/*builder.append("\n" + imprime_valorH());
-		builder.append("\n" + imprime_HorasT());
-		builder.append("\n" + imprime_Salarios());
-		builder.append(media_salario());*/
-		//maior salario
-		//menor salario
+		builder.append("\n\n===   Dados previdenciarios   ===");
 		builder.append("\nAno dos 35 anos de contribuição: ");
 		builder.append(aposentadoria() + 10);
 		builder.append("\nAno idade minima: ");

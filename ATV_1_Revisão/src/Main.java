@@ -17,9 +17,15 @@ public class Main {
 		s.addSalario(96.1f, 45);
 		s.addSalario(9, 1);
 		
-
+		f.setSalario(s);
+		
 		System.out.println(f);
-		System.out.println(s);
+		System.out.println(f.getSalario().toString());
+		
+		System.out.println(f.getSalario().menores_salarios(2));
+		System.out.println(f.getSalario().maiores_salarios(2));
+
+		
 	}
 
 }
