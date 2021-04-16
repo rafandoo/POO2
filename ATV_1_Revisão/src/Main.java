@@ -16,6 +16,15 @@ public class Main {
 		s.addSalario(25, 32);
 		s.addSalario(96.1f, 45);
 		s.addSalario(9, 1);
+		s.addSalario(100.12f, 6);
+		s.addSalario(84, 120);
+		s.addSalario(12, 12);
+		s.addSalario(16.954f, 25);
+		s.addSalario(1, 12);
+		s.addSalario(2.5f, 6);
+		s.addSalario(45, 5);
+		s.addSalario(15, 2);
+		s.addSalario(20, 30);
 		
 		f.setSalario(s);
 		
@@ -24,8 +33,5 @@ public class Main {
 		
 		System.out.println(f.getSalario().menores_salarios(2));
 		System.out.println(f.getSalario().maiores_salarios(2));
-
-		
 	}
-
 }

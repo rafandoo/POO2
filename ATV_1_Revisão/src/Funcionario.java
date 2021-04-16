@@ -80,7 +80,7 @@ public class Funcionario extends Usuario {
 		return idade;
 	}
 	
-	public int aposentadoria() {
+	public int ano_idadeMin() {
 		int ano = data_nasc.get(Calendar.YEAR);
 		if(sexo.getCod() == 1) {
 			ano += 62;
@@ -90,7 +90,28 @@ public class Funcionario extends Usuario {
 		return ano;
 	}
 
-
+	public int tempo_contribuicao() {
+		int ano_atual = data_atual.get(Calendar.YEAR);
+		return (ano_atual - salario.anos_trab() + 35);
+	}
+	
+	public int ano_aposentadoria() {
+		if(tempo_contribuicao() > ano_idadeMin()) {
+			return (tempo_contribuicao());
+		} else {
+			return ano_idadeMin();
+		}
+	}
+	
+	public int idade_aposentadoria() {
+		return (ano_aposentadoria() - data_nasc.get(Calendar.YEAR));
+	}
+	
+	public int anos_faltantes() {
+		return(idade_aposentadoria() - calculaIdade());
+	}
+	
+	//TO STRING
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -108,20 +129,20 @@ public class Funcionario extends Usuario {
 		builder.append("\nSenha: ");
 		builder.append(getSenha());
 		builder.append("\n\n===   Dados previdenciarios   ===");
-		builder.append("\nAno dos 35 anos de contribuição: ");
-		builder.append(aposentadoria() + 10);
-		builder.append("\nAno idade minima: ");
-		builder.append(aposentadoria());
 		builder.append("\nAno nascimento: ");
 		builder.append(sdf_ano.format(data_nasc.getTime()));
+		builder.append("\nAno dos 35 anos de contribuição: ");
+		builder.append(tempo_contribuicao());
+		builder.append("\nAno idade minima: ");
+		builder.append(ano_idadeMin());
 		builder.append("\nAno aposentadoria: ");
-		builder.append(aposentadoria() + 10);
+		builder.append(ano_aposentadoria());
 		builder.append("\nIdade aposentadoria: ");
-		builder.append((aposentadoria() + 10) - data_nasc.get(Calendar.YEAR));
+		builder.append(idade_aposentadoria());
 		builder.append("\nIdade atual: ");
 		builder.append(calculaIdade());
 		builder.append("\nAnos faltantes para se aposentar: ");
-		builder.append((aposentadoria() + 10) - data_nasc.get(Calendar.YEAR) - calculaIdade());
+		builder.append(anos_faltantes());
 		return builder.toString();
 	}
 
