@@ -5,8 +5,13 @@ public class Usuario {
 
 	//CONSTRUTORES
 	public Usuario(String usuario, String senha) throws NoSuchAlgorithmException {
-		addUsuario(usuario, senha);
-		crip_senha();
+		if(usuario.equals(senha)) {
+			System.out.println("Usuario não pode ser igual a senha!");
+		} else {
+			setUsuario(usuario);
+			setSenha(senha);
+			criptografar_senha();
+		}
 	}
 	
 	//ATRIBUTOS
@@ -32,19 +37,8 @@ public class Usuario {
 		}
 	}
 	
-	//METODOS
-	public boolean addUsuario(String usuario, String senha) {
-		if(usuario.equals(senha)) {
-			System.out.println("Usuario não pode ser igual a senha!");
-			return false;
-		} else {
-			setUsuario(usuario);
-			setSenha(senha);
-			return true;
-		}	
-	}
-	
-	private void crip_senha() throws NoSuchAlgorithmException {
+	//METODOS	
+	private void criptografar_senha() throws NoSuchAlgorithmException {
 		MessageDigest algotithm = MessageDigest.getInstance("SHA1");
 		byte messageDigest[] = algotithm.digest(getSenha().getBytes());
 		StringBuffer sb = new StringBuffer();

@@ -8,6 +8,19 @@ public class Salario {
 	//INSTANCIA
 	DecimalFormat df = new DecimalFormat("R$ #,##0.00");
 	
+	//CONSTRUTOR
+	public Salario() {
+		
+	}
+	
+	public Salario(float valor, int horas) {
+		valorHora.add(valor);
+		horas_trab.add(horas);
+		salario.add((double) (valor * horas));
+		lista_salarios.add((double) valor * horas);
+		mesesTrab++;
+	}
+	
 	//ATRIBUTOS
 	private int mesesTrab;
 
@@ -21,7 +34,7 @@ public class Salario {
 	public int getMesesTrab() {
 		return mesesTrab;
 	}
-	private void setMesesTrab(int mesesTrab) {
+	public void setMesesTrab(int mesesTrab) {
 		this.mesesTrab = mesesTrab;
 	}
 	
@@ -44,7 +57,7 @@ public class Salario {
 		return msg;
 	}
 	
-	public String imprime_HorasT() {
+	public String imprime_horasT() {
 		int i = 1;
 		String msg = "";
 		for (Integer valor : horas_trab) {
@@ -54,7 +67,7 @@ public class Salario {
 		return msg;
 	}
 	
-	public String imprime_Salarios() {
+	public String imprime_salarios() {
 		String msg = ""; 
 		for(int i = 0; i < salario.size(); i++) {
 			msg += "Salário " + (i+1) + ": "+ df.format(salario.get(i)) + "\n";
@@ -107,11 +120,11 @@ public class Salario {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("\n===   Dados salários   ===");
-		builder.append("\n" + imprime_Salarios());
+		builder.append("\n" + imprime_salarios());
 		builder.append("Valor hora: ");
 		builder.append(imprime_valorH());
 		builder.append("\nHoras Trabalhadas: ");
-		builder.append(imprime_HorasT());
+		builder.append(imprime_horasT());
 		builder.append("\nTotal de salarios: ");
 		builder.append(df.format(total_salario()));
 		builder.append("\nMédia salarial: ");

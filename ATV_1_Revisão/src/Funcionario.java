@@ -10,16 +10,24 @@ public class Funcionario extends Usuario {
 	SimpleDateFormat sdf_ano = new SimpleDateFormat("y");
 	Calendar data_nasc = new GregorianCalendar();
 	Calendar data_atual = Calendar.getInstance();
-	Salario s = new Salario();
 	
 	//CONSTRUTORES
 	public Funcionario(String usuario, String senha) throws NoSuchAlgorithmException {
 		super(usuario, senha);
 	}
+	
 	public Funcionario(String usuario, String senha, String nome, String email) throws NoSuchAlgorithmException {
 		super(usuario, senha);
 		setNome(nome);
 		setEmail(email);		
+	}
+	
+	public Funcionario(String usuario, String senha, String nome, String email, Sexo sexo, Salario salario) throws NoSuchAlgorithmException {
+		super(usuario, senha);
+		setNome(nome);
+		setEmail(email);
+		setSexo(sexo);
+		setSalario(salario);
 	}
 
 	//ATRIBUTOS
@@ -145,5 +153,4 @@ public class Funcionario extends Usuario {
 		builder.append(anos_faltantes());
 		return builder.toString();
 	}
-
 }
