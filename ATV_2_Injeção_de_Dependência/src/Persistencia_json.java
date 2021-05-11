@@ -13,9 +13,8 @@ import java.lang.reflect.Type;
 public class Persistencia_json {
 
 	//CONSTRUTOR
-	public Persistencia_json(Aluno aluno) {
-		setAluno(aluno);
-		lista.add(aluno);
+	public Persistencia_json() {
+		
 	}
 	
 	//INTANCIAS
@@ -35,6 +34,10 @@ public class Persistencia_json {
 	}
 	
 	//METODOS
+	public boolean addLista(Aluno aluno) {
+		return (lista.add(aluno));
+	}
+	
 	public void gerarJson() throws IOException {
 		FileWriter writer = new FileWriter("json/alunos.json");
 		writer.write(gson.toJson(lista));
@@ -56,7 +59,7 @@ public class Persistencia_json {
 		
 		for(Iterator<Aluno> iterator = lista.iterator(); iterator.hasNext();) {
 			Aluno al = (Aluno) iterator.next();
-			msg += al.toString();
+			msg += al.toString() + "\n";
 		}
 		return (msg);
 	}
