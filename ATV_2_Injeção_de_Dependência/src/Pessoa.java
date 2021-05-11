@@ -18,9 +18,19 @@ public class Pessoa {
 		return nome;
 	}
 	public void setNome(String nome) {
-		if(nome.length() < 0) {
+		if(nome.length() > 0) {
 			this.nome = nome;
 		}
+	}
+
+	//SAIDA
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pessoa [nome=");
+		builder.append(nome);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 }

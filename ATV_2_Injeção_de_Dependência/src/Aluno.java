@@ -47,5 +47,21 @@ public class Aluno extends Pessoa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	//SAIDA
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Aluno [matricula=");
+		builder.append(matricula);
+		builder.append(", cpf=");
+		builder.append(cpf);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", toString()=");
+		builder.append(super.toString());
+		builder.append("]");
+		return builder.toString();
+	}
 	
 }
