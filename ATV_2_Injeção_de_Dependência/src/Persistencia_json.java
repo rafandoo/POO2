@@ -15,6 +15,7 @@ public class Persistencia_json {
 	//CONSTRUTOR
 	public Persistencia_json(Aluno aluno) {
 		setAluno(aluno);
+		lista.add(aluno);
 	}
 	
 	//INTANCIAS
@@ -35,13 +36,13 @@ public class Persistencia_json {
 	
 	//METODOS
 	public void gerarJson() throws IOException {
-		lista.add(aluno);
 		FileWriter writer = new FileWriter("json/alunos.json");
 		writer.write(gson.toJson(lista));
 		writer.close();
 	}
 	
-	public void lerJson() throws FileNotFoundException {
+
+	public String lerJson() throws FileNotFoundException {
 		builder = new GsonBuilder();
 		gson = builder.create();
 		BufferedReader bufferedReader = new BufferedReader(new FileReader("json/alunos.json"));
@@ -51,7 +52,13 @@ public class Persistencia_json {
 		lista = new ArrayList<Aluno>();
 		lista = new Gson().fromJson(bufferedReader, listType);
 		
+		String msg = "";
 		
+		for(Iterator<Aluno> iterator = lista.iterator(); iterator.hasNext();) {
+			Aluno al = (Aluno) iterator.next();
+			msg += al.toString();
+		}
+		return (msg);
 	}
 	
 	public String saida() {
