@@ -18,7 +18,6 @@ public class Main {
 		pjson.addListaJson(al2);
 		pjson.gerarJson();
 		
-		
 		System.out.println(aluno);
 		System.out.println(al2);
 		System.out.println("\n\n");

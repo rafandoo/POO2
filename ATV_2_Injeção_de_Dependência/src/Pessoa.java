@@ -23,7 +23,7 @@ public class Pessoa {
 		}
 	}
 
-	//SAIDA
+	//TO_STRING
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -32,5 +32,4 @@ public class Pessoa {
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }
