@@ -17,6 +17,7 @@ public class Main {
 		System.out.println(aluno);
 		System.out.println("\n\n");
 		System.out.println(pjson.saida());
+		System.out.println(pjson.lerJson());
 
 	}
 
