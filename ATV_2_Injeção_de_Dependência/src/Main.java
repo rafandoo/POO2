@@ -11,12 +11,21 @@ public class Main {
 		aluno.setMatricula(6);
 		aluno.setEmail("rafaelcamargo.inf@gmail.com");
 		
-		Persistencia_json pjson = new Persistencia_json(aluno);
+		Aluno al2 = new Aluno("Tulio", 5, "10153297999", "tuliosouzanascimento@hotmail.com");
+		
+		Persistencia_json pjson = new Persistencia_json();
+
+		pjson.addListaJson(aluno);
+		pjson.addListaJson(al2);
+		
 		pjson.gerarJson();
 		
+		
 		System.out.println(aluno);
+		System.out.println(al2);
 		System.out.println("\n\n");
 		System.out.println(pjson.saida());
+		System.out.println("\n");
 		System.out.println(pjson.lerJson());
 
 	}
