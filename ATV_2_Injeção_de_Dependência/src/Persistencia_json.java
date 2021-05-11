@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -38,6 +39,19 @@ public class Persistencia_json {
 		FileWriter writer = new FileWriter("json/alunos.json");
 		writer.write(gson.toJson(lista));
 		writer.close();
+	}
+	
+	public void lerJson() throws FileNotFoundException {
+		builder = new GsonBuilder();
+		gson = builder.create();
+		BufferedReader bufferedReader = new BufferedReader(new FileReader("json/alunos.json"));
+		
+		Type listType = new TypeToken<ArrayList<Aluno>>(){}.getType();
+		
+		lista = new ArrayList<Aluno>();
+		lista = new Gson().fromJson(bufferedReader, listType);
+		
+		
 	}
 	
 	public String saida() {
