@@ -21,20 +21,9 @@ public class Persistencia_json {
 	List<Aluno> lista = new ArrayList<Aluno>();
 	GsonBuilder builder = new GsonBuilder();
 	Gson gson = builder.create();
-	
-	//ATRIBUTOS
-	Aluno aluno;
-	
-	//GET E SET
-	public Aluno getAluno() {
-		return aluno;
-	}
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-	
+		
 	//METODOS
-	public boolean addLista(Aluno aluno) {
+	public boolean addListaJson(Aluno aluno) {
 		return (lista.add(aluno));
 	}
 	
@@ -44,19 +33,15 @@ public class Persistencia_json {
 		writer.close();
 	}
 	
-
 	public String lerJson() throws FileNotFoundException {
 		builder = new GsonBuilder();
 		gson = builder.create();
 		BufferedReader bufferedReader = new BufferedReader(new FileReader("json/alunos.json"));
-		
 		Type listType = new TypeToken<ArrayList<Aluno>>(){}.getType();
-		
 		lista = new ArrayList<Aluno>();
 		lista = new Gson().fromJson(bufferedReader, listType);
 		
 		String msg = "";
-		
 		for(Iterator<Aluno> iterator = lista.iterator(); iterator.hasNext();) {
 			Aluno al = (Aluno) iterator.next();
 			msg += al.toString() + "\n";
@@ -64,9 +49,9 @@ public class Persistencia_json {
 		return (msg);
 	}
 	
+	//FINS DE TESTE
 	public String saida() {
 		return gson.toJson(lista);
 	}
-	
 	
 }
