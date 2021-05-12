@@ -21,16 +21,10 @@ public class Persistencia_json {
 	}
 
 	// INTANCIAS
-	List<Aluno> lista = new ArrayList<Aluno>();
 	GsonBuilder builder = new GsonBuilder();
 	Gson gson = builder.create();
 
-	// METODOS
-	public boolean addListaJson(Aluno aluno) {
-		return (lista.add(aluno));
-	}
-
-	public void gerarJson() throws IOException {
+	public void gerarJson(List<Aluno> lista) throws IOException {
 		FileWriter writer = new FileWriter("json/alunos.json");
 		writer.write(gson.toJson(lista));
 		writer.close();
@@ -40,13 +34,12 @@ public class Persistencia_json {
 		builder = new GsonBuilder();
 		gson = builder.create();
 		BufferedReader bufferedReader = new BufferedReader(new FileReader("json/alunos.json"));
-		Type listType = new TypeToken<ArrayList<Aluno>>() {
-		}.getType();
-		lista = new ArrayList<Aluno>();
-		lista = new Gson().fromJson(bufferedReader, listType);
+		Type listType = new TypeToken<ArrayList<Aluno>>() {}.getType();
+		List<Aluno> list = new ArrayList<Aluno>();
+		list = new Gson().fromJson(bufferedReader, listType);
 
 		String msg = "";
-		for (Iterator<Aluno> iterator = lista.iterator(); iterator.hasNext();) {
+		for (Iterator<Aluno> iterator = list.iterator(); iterator.hasNext();) {
 			Aluno al = (Aluno) iterator.next();
 			msg += al.toString() + "\n";
 		}
@@ -54,8 +47,8 @@ public class Persistencia_json {
 	}
 
 	// FINS DE TESTE
-	public String saida() {
-		return gson.toJson(lista);
-	}
+	/*public String saida() {
+		return gson.toJson(list);
+	}*/
 
 }
