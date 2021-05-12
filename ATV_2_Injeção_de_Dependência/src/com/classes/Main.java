@@ -2,6 +2,9 @@ package com.classes;
 
 import com.persistencias.Persistencia_xml;
 import com.persistencias.Persistencia_json;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import com.persistencias.Persistencia_csv;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,9 +13,10 @@ import java.util.Iterator;
 public class Main {
 
 	@SuppressWarnings("rawtypes")
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
 
 		// INSTANCIAS
+		Persistencia_csv pcsv = new Persistencia_csv();
 		
 		// INSERSÂO DE DADOS
 		ListAlunos lista = new ListAlunos();
@@ -49,6 +53,10 @@ public class Main {
 		// GERAR ARQUIVO XML
 		Persistencia_xml.gravarXML(lista.getLista());
 		
+		// GERAR ARQUIVO CSV
+		//pcsv.gerarCsv(null);
+		//pcsv.gerarCSV(lista.getLista());
+		Persistencia_csv.gCsv(lista.getLista());
 		
 		// LEITURA ARQUIVOS PERSISTENCIA
 		List<Aluno> list = Persistencia_xml.lerXML();
