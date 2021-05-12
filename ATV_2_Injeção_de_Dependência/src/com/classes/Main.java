@@ -56,15 +56,18 @@ public class Main {
 		// GERAR ARQUIVO CSV
 		Persistencia_csv.gerarCsv(lista.getLista());
 		
+		Persistencia_csv pcsv = new Persistencia_csv();
+		
+
 		// LEITURA ARQUIVOS PERSISTENCIA
-		List<Aluno> list = Persistencia_xml.lerXML();
+		/*List<Aluno> list = Persistencia_xml.lerXML();
 		for(Iterator iter = list.iterator(); iter.hasNext();) {
 			Aluno element = (Aluno) iter.next();
 			System.out.println(element.toString() + "\n---");
 		}
 		
 		System.out.println("\nalunos.json");
-		System.out.println(pjson.lerJson());
+		System.out.println(pjson.lerJson());*/
 
 		
 	}
