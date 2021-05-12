@@ -24,13 +24,13 @@ public class Main {
 		
 		Aluno al2 = new Aluno("Tulio", 5, "10153297999", "01/03/1996", "tuliosouzanascimento@hotmail.com");
 
+		Aluno al3 = new Aluno("Natalia", 16, "111.111.111-11", "10/05/2002", "naty.hang@gmail.com");
 		lista.inserir(aluno);
 		lista.inserir(al2);
+		lista.inserir(al3);
 		
 		Persistencia_json pjson = new Persistencia_json();
-		pjson.addListaJson(aluno);
-		pjson.addListaJson(al2);
-		pjson.gerarJson();
+		pjson.gerarJson(lista.getLista());
 		
 
 		Persistencia_xml.gravarXML(lista.getLista());
@@ -45,7 +45,7 @@ public class Main {
 		System.out.println(aluno);
 		System.out.println(al2);
 		System.out.println("\n\n");
-		System.out.println(pjson.saida());
+		//System.out.println(pjson.saida());
 		System.out.println("\n");
 		System.out.println(pjson.lerJson());
 
