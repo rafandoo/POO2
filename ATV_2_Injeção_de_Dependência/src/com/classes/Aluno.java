@@ -1,9 +1,13 @@
 package com.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno extends Pessoa {
 
 	// INSTANCIAS
-
+	List<Aluno> lista = new ArrayList<Aluno>();
+	
 	// CONSTRUTORES
 	public Aluno() {
 
@@ -28,6 +32,10 @@ public class Aluno extends Pessoa {
 	private String email;
 
 	// GETTERS E SETTERS
+	public List<Aluno> getLista() {
+		return lista;
+	}
+	
 	public int getMatricula() {
 		return matricula;
 	}
@@ -64,6 +72,11 @@ public class Aluno extends Pessoa {
 		}
 	}
 
+	// METODOS
+	public boolean addLista(Aluno aluno) {
+		return lista.add(aluno);
+	}
+	
 	// SAIDA
 	@Override
 	public String toString() {
