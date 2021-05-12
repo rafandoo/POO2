@@ -2,21 +2,29 @@ package com.persistencias;
 
 import com.classes.Aluno;
 import com.opencsv.CSVWriter;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Persistencia_csv {
 
 	// ATRIBUTOS
-	private static final String CSV_PATH = "csv/alunos.csv";
+	private static final String LOCALHOST = "csv/alunos.csv";
 	
 	// METODOS
 	@SuppressWarnings("resource")
 	public static void gerarCsv(List<Aluno> aluno) throws IOException {
 		try {
-			FileWriter fileWriter = new FileWriter(CSV_PATH);
+			FileWriter fileWriter = new FileWriter(LOCALHOST);
 			CSVWriter csvWriter = new CSVWriter(fileWriter);
 			
 			String[] headers = {"nome", "matricula", "cpf", "data nascimento", "email"};
@@ -38,6 +46,15 @@ public class Persistencia_csv {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+	}
+	
+	public void testecsv(List<Aluno> aluno) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+		Writer writer = Files.newBufferedWriter(Paths.get("csv/aluno.csv"));
+		StatefulBeanToCsv<Aluno> beanToCsv = new StatefulBeanToCsvBuilder(writer).build();
+		beanToCsv.write(aluno);
+		
+		writer.flush();
+		writer.close();
+		
 	}
 }

@@ -15,13 +15,16 @@ import com.classes.Aluno;
 
 public class Persistencia_json {
 
+	// ATRIBUTOS
+	private final String LOCALHOST = "json/alunos.json";
+	
 	// INTANCIAS
 	GsonBuilder builder = new GsonBuilder();
 	Gson gson = builder.create();
 
 	// METODOS
 	public void gerarJson(List<Aluno> lista) throws IOException {
-		FileWriter writer = new FileWriter("json/alunos.json");
+		FileWriter writer = new FileWriter(LOCALHOST);
 		writer.write(gson.toJson(lista));
 		writer.close();
 	}
