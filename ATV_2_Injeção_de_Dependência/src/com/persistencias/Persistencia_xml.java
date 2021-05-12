@@ -93,7 +93,7 @@ public class Persistencia_xml {
 			Aluno aluno = new Aluno();
 			aluno.setMatricula(Integer.parseInt(element.getAttributeValue("matricula")));
 			aluno.setNome(element.getChildText("nome"));
-			//aluno.setData_nascimento(element.getChildText("data nascimento"));
+			aluno.setData_nascimento(element.getChildText("data_nascimento"));
 			aluno.setCpf(element.getChildText("cpf"));
 			aluno.setEmail(element.getChildText("email"));
 			lista_aluno.add(aluno);
