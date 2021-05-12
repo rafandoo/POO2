@@ -5,7 +5,6 @@ import com.persistencias.Persistencia_json;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.persistencias.Persistencia_csv;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Iterator;
