@@ -16,7 +16,7 @@ public class Main {
 	public static void main(String[] args) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
 
 		// INSTANCIAS
-		Persistencia_csv pcsv = new Persistencia_csv();
+
 		
 		// INSERSÂO DE DADOS
 		ListAlunos lista = new ListAlunos();
@@ -56,7 +56,7 @@ public class Main {
 		// GERAR ARQUIVO CSV
 		//pcsv.gerarCsv(null);
 		//pcsv.gerarCSV(lista.getLista());
-		Persistencia_csv.gCsv(lista.getLista());
+		Persistencia_csv.gerarCsv(lista.getLista());
 		
 		// LEITURA ARQUIVOS PERSISTENCIA
 		List<Aluno> list = Persistencia_xml.lerXML();
