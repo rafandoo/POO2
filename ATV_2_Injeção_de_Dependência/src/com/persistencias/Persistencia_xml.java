@@ -69,4 +69,32 @@ public class Persistencia_xml {
 		}
 		return false;
 	}
+
+	@SuppressWarnings("rawtypes")
+	public static List<Aluno> lerXML() {
+		List<Aluno> lista_aluno = new ArrayList<Aluno>();
+		Document documento = null;
+		SAXBuilder builder = new SAXBuilder();
+		
+		try {
+			documento = builder.build(LOCALHOST + NOMEDOARQUIVO + ".xml");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Element config = documento.getRootElement();
+		List lista = config.getChildren("aluno");
+		
+		for(Iterator iter = lista.iterator(); iter.hasNext();) {
+			Element element = (Element) iter.next();
+			Aluno aluno = new Aluno();
+			aluno.setMatricula(Integer.parseInt(element.getAttributeValue("matricula")));
+			aluno.setNome(element.getChildText("nome"));
+			aluno.setData_nascimento(element.getChildText("data nascimento"));
+			aluno.setCpf(element.getChildText("cpf"));
+			aluno.setEmail(element.getChildText("email"));
+			lista_aluno.add(aluno);
+		}
+		return lista_aluno;
+	}
+
 }
