@@ -47,15 +47,15 @@ public class Persistencia_xml {
 			Element cpf = new Element("cpf");
 			cpf.setText(lista.get(i).getCpf());
 			
-			//Element data_nascimento = new Element("data nascimento");
-			//data_nascimento.setText(lista.get(i).getData_nascimento());
+			Element data_nascimento = new Element("data_nascimento");
+			data_nascimento.setText(lista.get(i).getData_nascimento());
 			
 			Element email = new Element("email");
 			email.setText(lista.get(i).getEmail());
 			
 			aluno.addContent(nome);
 			aluno.addContent(cpf);
-			//aluno.addContent(data_nascimento);
+			aluno.addContent(data_nascimento);
 			aluno.addContent(email);
 			config.addContent(aluno);
 		}
