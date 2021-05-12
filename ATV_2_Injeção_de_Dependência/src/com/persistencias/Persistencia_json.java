@@ -15,11 +15,6 @@ import com.classes.Aluno;
 
 public class Persistencia_json {
 
-	// CONSTRUTOR
-	public Persistencia_json() {
-
-	}
-
 	// INTANCIAS
 	GsonBuilder builder = new GsonBuilder();
 	Gson gson = builder.create();
