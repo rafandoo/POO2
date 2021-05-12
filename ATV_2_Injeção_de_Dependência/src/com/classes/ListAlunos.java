@@ -17,5 +17,4 @@ public class ListAlunos {
 	public void inserir(Aluno aluno) {
 		lista.add(aluno);
 	}
-	
 }
