@@ -10,6 +10,7 @@ import java.util.Iterator;
 
 public class Main {
 
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) throws IOException {
 
 		ListAlunos lista = new ListAlunos();
