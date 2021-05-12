@@ -5,13 +5,14 @@ import com.persistencias.Persistencia_xml;
 import java.io.IOException;
 import com.persistencias.Persistencia_json;
 import java.util.List;
-import java.util.ArrayList;
+
+import java.util.Iterator;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		List<Aluno> lista = new ArrayList<Aluno>();
+		ListAlunos lista = new ListAlunos();
 		
 		Aluno aluno = new Aluno();
 		aluno.setNome("Rafa");
@@ -23,17 +24,23 @@ public class Main {
 		
 		Aluno al2 = new Aluno("Tulio", 5, "10153297999", "01/03/1996", "tuliosouzanascimento@hotmail.com");
 
-		lista.add(aluno);
-		lista.add(al2);
+		lista.inserir(aluno);
+		lista.inserir(al2);
 		
 		Persistencia_json pjson = new Persistencia_json();
 		pjson.addListaJson(aluno);
 		pjson.addListaJson(al2);
 		pjson.gerarJson();
-
-		Persistencia_xml pxml = new Persistencia_xml();
 		
-		pxml.gravarXML(lista);
+
+		Persistencia_xml.gravarXML(lista.getLista());
+		
+		List<Aluno> list = Persistencia_xml.lerXML();
+		
+		for(Iterator iter = list.iterator(); iter.hasNext();) {
+			Aluno element = (Aluno) iter.next();
+			System.out.println(element.toString() + "\n---");
+		}
 		
 		System.out.println(aluno);
 		System.out.println(al2);

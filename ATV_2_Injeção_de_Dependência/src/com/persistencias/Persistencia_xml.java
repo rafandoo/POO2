@@ -1,5 +1,8 @@
 package com.persistencias;
 
+import com.classes.Aluno;
+import util.DataUtil;
+
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,14 +16,13 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
-import com.classes.Aluno;
-import util.DataUtil;
-
 public class Persistencia_xml {
 
+	// ATRIBUTOS
 	final static String NOMEDOARQUIVO = "alunos";
 	final static String LOCALHOST = "xml/";
 	
+	// METODOS
 	public static boolean gravarXML(List<Aluno> lista) {
 		Element config = new Element("Alunos");
 		Document documento = new Document(config);
@@ -55,6 +57,7 @@ public class Persistencia_xml {
 			aluno.addContent(cpf);
 			//aluno.addContent(data_nascimento);
 			aluno.addContent(email);
+			config.addContent(aluno);
 		}
 		
 		XMLOutputter xout = new XMLOutputter();
@@ -81,6 +84,7 @@ public class Persistencia_xml {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		Element config = documento.getRootElement();
 		List lista = config.getChildren("aluno");
 		
@@ -96,5 +100,4 @@ public class Persistencia_xml {
 		}
 		return lista_aluno;
 	}
-
 }
