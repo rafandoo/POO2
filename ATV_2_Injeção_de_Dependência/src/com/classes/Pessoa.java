@@ -24,7 +24,7 @@ public class Pessoa {
 		}
 	}
 
-	// TO_STRING
+	// SAIDA
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

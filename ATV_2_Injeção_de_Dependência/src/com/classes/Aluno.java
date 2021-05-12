@@ -66,17 +66,17 @@ public class Aluno extends Pessoa {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n=== ALUNO ===");
-		builder.append("\n" + super.toString());
-		builder.append("\nMatricula: ");
+		builder.append("ALUNO {");
+		builder.append(super.toString());
+		builder.append(", Matricula: ");
 		builder.append(matricula);
-		builder.append("\nCPF: ");
+		builder.append(", CPF: ");
 		builder.append(cpf);
-		builder.append("\nData de nascimento: ");
+		builder.append(", Data de nascimento: ");
 		builder.append(data_nascimento);
-		builder.append("\nEmail: ");
+		builder.append(", Email: ");
 		builder.append(email);
-
+		builder.append("}");
 		return builder.toString();
 	}
 }
