@@ -19,6 +19,7 @@ public class Persistencia_json {
 	GsonBuilder builder = new GsonBuilder();
 	Gson gson = builder.create();
 
+	// METODOS
 	public void gerarJson(List<Aluno> lista) throws IOException {
 		FileWriter writer = new FileWriter("json/alunos.json");
 		writer.write(gson.toJson(lista));
@@ -40,10 +41,4 @@ public class Persistencia_json {
 		}
 		return (msg);
 	}
-
-	// FINS DE TESTE
-	/*public String saida() {
-		return gson.toJson(list);
-	}*/
-
 }
