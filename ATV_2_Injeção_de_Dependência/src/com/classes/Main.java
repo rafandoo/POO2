@@ -54,8 +54,6 @@ public class Main {
 		Persistencia_xml.gravarXML(lista.getLista());
 		
 		// GERAR ARQUIVO CSV
-		//pcsv.gerarCsv(null);
-		//pcsv.gerarCSV(lista.getLista());
 		Persistencia_csv.gerarCsv(lista.getLista());
 		
 		// LEITURA ARQUIVOS PERSISTENCIA
