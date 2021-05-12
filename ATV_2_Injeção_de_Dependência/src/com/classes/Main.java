@@ -24,7 +24,7 @@ public class Main {
 		Aluno aluno = new Aluno();
 		aluno.setNome("Rafael");
 		aluno.setCpf("108.755.119-61");
-		aluno.setMatricula(6);
+		aluno.setMatricula(2020006201);
 		aluno.setData_nascimento("05/06/2002");
 		aluno.setEmail("rafaelcamargo.inf@gmail.com");
 		lista.inserir(aluno);
