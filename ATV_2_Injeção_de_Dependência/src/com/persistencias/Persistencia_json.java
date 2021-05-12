@@ -1,3 +1,5 @@
+package com.persistencias;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,6 +11,7 @@ import java.util.List;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import com.classes.Aluno;
 
 public class Persistencia_json {
 
