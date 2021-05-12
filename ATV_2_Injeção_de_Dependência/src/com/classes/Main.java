@@ -32,7 +32,7 @@ public class Main {
 		aluno = new Aluno();
 		aluno.setNome("Tulio");
 		aluno.setCpf("111.111.111-11");
-		aluno.setMatricula(5);
+		aluno.setMatricula(2021001252);
 		aluno.setData_nascimento("01/03/1996");
 		aluno.setEmail("tuliosouzanascimento@hotmail.com");
 		lista.inserir(aluno);
@@ -40,7 +40,7 @@ public class Main {
 		aluno = new Aluno();
 		aluno.setNome("Natalia");
 		aluno.setCpf("222.222.222-22");
-		aluno.setMatricula(16);
+		aluno.setMatricula(2020008599);
 		aluno.setData_nascimento("10/05/2002");
 		aluno.setEmail("naty.hang@gmail.com");
 		lista.inserir(aluno);
