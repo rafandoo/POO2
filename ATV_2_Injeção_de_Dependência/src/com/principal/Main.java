@@ -10,8 +10,6 @@ import com.persistencias.Controle_persistencia;
 import com.persistencias.Persistencia;
 import com.persistencias.Persistencia_csv;
 import java.io.IOException;
-import java.util.List;
-import java.util.Iterator;
 
 public class Main {
 
@@ -21,12 +19,15 @@ public class Main {
 		// INSTANCIAS
 		ListAlunos lista = new ListAlunos();
 		Aluno aluno = new Aluno();
-		//Persistencia_json pjson = new Persistencia_json();
-		//Persistencia_xml pxml = new Persistencia_xml();
-		//Persistencia_csv pcsv = new Persistencia_csv();
 		
-		Persistencia p = new Persistencia_xml();
-		Controle_persistencia cp = new Controle_persistencia(p);
+		Persistencia p1 = new Persistencia_xml();
+		Controle_persistencia cp1 = new Controle_persistencia(p1);
+		
+		Persistencia p2 = new Persistencia_csv();
+		Controle_persistencia cp2 = new Controle_persistencia(p2);
+		
+		Persistencia p3 = new Persistencia_json();
+		Controle_persistencia cp3 = new Controle_persistencia(p3);
 	
 		
 		// INSERSÂO DE DADOS
@@ -54,7 +55,9 @@ public class Main {
 		lista.inserir(aluno);
 
 		
-		cp.gerarPersistencia(lista.getLista());
+		cp1.gerarPersistencia(lista.getLista());
+		cp2.gerarPersistencia(lista.getLista());
+		cp3.gerarPersistencia(lista.getLista());
 		/*
 		// GERAR ARQUIVO JSON
 		pjson.gerarArquivo(lista.getLista());

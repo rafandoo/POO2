@@ -2,7 +2,6 @@ package com.persistencias;
 
 import com.classes.Aluno;
 import util.DataUtil;
-
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -74,7 +73,7 @@ public class Persistencia_xml implements Persistencia{
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static List<Aluno> lerXML() {
+	public List<Aluno> lerXML() {
 		List<Aluno> lista_aluno = new ArrayList<Aluno>();
 		Document documento = null;
 		SAXBuilder builder = new SAXBuilder();

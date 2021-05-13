@@ -15,7 +15,7 @@ import com.classes.Aluno;
 
 public class Persistencia_json implements Persistencia {
 
-	// ATRIBUTOS
+	// ATRIBUTO
 	private final static String LOCALHOST = "json/alunos.json";
 	
 	// INTANCIAS

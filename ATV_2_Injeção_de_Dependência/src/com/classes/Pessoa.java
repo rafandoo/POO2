@@ -11,10 +11,10 @@ public class Pessoa {
 		setNome(nome);
 	}
 
-	// ATRIBUTOS
+	// ATRIBUTO
 	private String nome;
 
-	// GETTERS E SETTERS
+	// GET E SET
 	public String getNome() {
 		return nome;
 	}
