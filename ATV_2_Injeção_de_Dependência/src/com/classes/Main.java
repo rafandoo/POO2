@@ -50,7 +50,11 @@ public class Main {
 		//pjson.gerarJson(lista.getLista());
 		
 		// GERAR ARQUIVO XML
-		Persistencia_xml.gravarXML(lista.getLista());
+		Persistencia_xml pxml = new Persistencia_xml();
+		
+		pxml.gerarArquivo(lista.getLista());
+		
+		//Persistencia_xml.gerarArquivo(lista.getLista());
 		
 		// GERAR ARQUIVO CSV
 		Persistencia_csv pcsv = new Persistencia_csv();
