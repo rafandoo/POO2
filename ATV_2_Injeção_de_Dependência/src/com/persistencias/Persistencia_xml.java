@@ -16,14 +16,14 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
-public class Persistencia_xml {
+public class Persistencia_xml implements Persistencia{
 
 	// ATRIBUTOS
 	final static String NOMEDOARQUIVO = "alunos";
 	final static String LOCALHOST = "xml/";
 	
 	// METODOS
-	public static boolean gravarXML(List<Aluno> lista) {
+	public boolean gerarArquivo(List<Aluno> lista) {
 		Element config = new Element("Alunos");
 		Document documento = new Document(config);
 		
