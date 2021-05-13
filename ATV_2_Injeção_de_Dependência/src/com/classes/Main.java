@@ -44,13 +44,19 @@ public class Main {
 
 		// GERAR ARQUIVO JSON
 		Persistencia_json pjson = new Persistencia_json();
-		pjson.gerarJson(lista.getLista());
+		
+		pjson.gerarArquivo(lista.getLista());
+		
+		//pjson.gerarJson(lista.getLista());
 		
 		// GERAR ARQUIVO XML
 		Persistencia_xml.gravarXML(lista.getLista());
 		
 		// GERAR ARQUIVO CSV
-		Persistencia_csv.gerarCsv(lista.getLista());
+		Persistencia_csv pcsv = new Persistencia_csv();
+		pcsv.gerarArquivo(lista.getLista());
+		
+		//Persistencia_csv.gerarCsv(lista.getLista());
 		
 
 		// LEITURA ARQUIVOS PERSISTENCIA
