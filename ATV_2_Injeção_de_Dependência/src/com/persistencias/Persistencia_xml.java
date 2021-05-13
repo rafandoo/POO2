@@ -62,7 +62,7 @@ public class Persistencia_xml implements Persistencia{
 		XMLOutputter xout = new XMLOutputter();
 		
 		try {
-			System.out.println(NOMEDOARQUIVO + ".xml");
+			//System.out.println(NOMEDOARQUIVO + ".xml");
 			BufferedWriter arquivo = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(LOCALHOST + NOMEDOARQUIVO + ".xml"), "UTF-8"));
 			xout.output(documento, arquivo);
 			return true;
