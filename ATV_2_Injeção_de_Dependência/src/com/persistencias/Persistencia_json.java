@@ -13,20 +13,28 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import com.classes.Aluno;
 
-public class Persistencia_json {
+public class Persistencia_json implements Persistencia {
 
 	// ATRIBUTOS
-	private final String LOCALHOST = "json/alunos.json";
+	private final static String LOCALHOST = "json/alunos.json";
 	
 	// INTANCIAS
 	GsonBuilder builder = new GsonBuilder();
 	Gson gson = builder.create();
 
 	// METODOS
-	public void gerarJson(List<Aluno> lista) throws IOException {
-		FileWriter writer = new FileWriter(LOCALHOST);
-		writer.write(gson.toJson(lista));
-		writer.close();
+	public boolean gerarArquivo(List<Aluno> aluno) {
+		FileWriter writer;
+		try {
+			writer = new FileWriter(LOCALHOST);
+			writer.write(gson.toJson(aluno));
+			writer.close();
+			return true;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return false;
 	}
 
 	public String lerJson() throws FileNotFoundException {
