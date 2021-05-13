@@ -1,7 +1,9 @@
-package com.classes;
+package com.principal;
 
 import com.persistencias.Persistencia_xml;
 import com.persistencias.Persistencia_json;
+import com.classes.Aluno;
+import com.classes.ListAlunos;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.persistencias.Persistencia_csv;
