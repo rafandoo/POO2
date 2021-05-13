@@ -13,7 +13,6 @@ import java.io.IOException;
 
 public class Main {
 
-	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
 
 		// INSTANCIAS
@@ -53,22 +52,21 @@ public class Main {
 		aluno.setData_nascimento("10/05/2002");
 		aluno.setEmail("naty.hang@gmail.com");
 		lista.inserir(aluno);
-
 		
+		aluno = new Aluno();
+		aluno.setNome("Josiane");
+		aluno.setCpf("444.444.444-44");
+		aluno.setMatricula(2019017233);
+		aluno.setData_nascimento("27/01/1995");
+		aluno.setEmail("josi.camargo@hotmail.com");
+		lista.inserir(aluno);
+
+		// GERAR ARQUIVO XML, CSV, JSON
 		cp1.gerarPersistencia(lista.getLista());
 		cp2.gerarPersistencia(lista.getLista());
 		cp3.gerarPersistencia(lista.getLista());
-		/*
-		// GERAR ARQUIVO JSON
-		pjson.gerarArquivo(lista.getLista());
-	
-		// GERAR ARQUIVO XML
-		pxml.gerarArquivo(lista.getLista());
-		
-		
-		// GERAR ARQUIVO CSV
-		pcsv.gerarArquivo(lista.getLista());
 
+		/*
 		// LEITURA ARQUIVOS PERSISTENCIA
 		List<Aluno> list = Persistencia_xml.lerXML();
 		for(Iterator iter = list.iterator(); iter.hasNext();) {
