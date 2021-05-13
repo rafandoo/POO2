@@ -66,17 +66,6 @@ public class Main {
 		cp2.gerarPersistencia(lista.getLista());
 		cp3.gerarPersistencia(lista.getLista());
 
-		/*
-		// LEITURA ARQUIVOS PERSISTENCIA
-		List<Aluno> list = Persistencia_xml.lerXML();
-		for(Iterator iter = list.iterator(); iter.hasNext();) {
-			Aluno element = (Aluno) iter.next();
-			System.out.println(element.toString() + "\n---");
-		}
-		/*
-		System.out.println("\nalunos.json");
-		System.out.println(pjson.lerJson());*/
-
-		
+		System.out.println(lista.getLista().toString());
 	}
 }
