@@ -6,6 +6,8 @@ import com.classes.Aluno;
 import com.classes.ListAlunos;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import com.persistencias.Controle_persistencia;
+import com.persistencias.Persistencia;
 import com.persistencias.Persistencia_csv;
 import java.io.IOException;
 import java.util.List;
@@ -19,9 +21,13 @@ public class Main {
 		// INSTANCIAS
 		ListAlunos lista = new ListAlunos();
 		Aluno aluno = new Aluno();
-		Persistencia_json pjson = new Persistencia_json();
-		Persistencia_xml pxml = new Persistencia_xml();
-		Persistencia_csv pcsv = new Persistencia_csv();
+		//Persistencia_json pjson = new Persistencia_json();
+		//Persistencia_xml pxml = new Persistencia_xml();
+		//Persistencia_csv pcsv = new Persistencia_csv();
+		
+		Persistencia p = new Persistencia_xml();
+		Controle_persistencia cp = new Controle_persistencia(p);
+	
 		
 		// INSERSÂO DE DADOS
 		aluno.setNome("Rafael");
@@ -47,6 +53,9 @@ public class Main {
 		aluno.setEmail("naty.hang@gmail.com");
 		lista.inserir(aluno);
 
+		
+		cp.gerarPersistencia(lista.getLista());
+		/*
 		// GERAR ARQUIVO JSON
 		pjson.gerarArquivo(lista.getLista());
 	
