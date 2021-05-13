@@ -17,6 +17,9 @@ public class Main {
 		// INSTANCIAS
 		ListAlunos lista = new ListAlunos();
 		Aluno aluno = new Aluno();
+		Persistencia_json pjson = new Persistencia_json();
+		Persistencia_xml pxml = new Persistencia_xml();
+		Persistencia_csv pcsv = new Persistencia_csv();
 		
 		// INSERSÂO DE DADOS
 		aluno.setNome("Rafael");
@@ -43,25 +46,14 @@ public class Main {
 		lista.inserir(aluno);
 
 		// GERAR ARQUIVO JSON
-		Persistencia_json pjson = new Persistencia_json();
-		
 		pjson.gerarArquivo(lista.getLista());
-		
-		//pjson.gerarJson(lista.getLista());
-		
+	
 		// GERAR ARQUIVO XML
-		Persistencia_xml pxml = new Persistencia_xml();
-		
 		pxml.gerarArquivo(lista.getLista());
 		
-		//Persistencia_xml.gerarArquivo(lista.getLista());
 		
 		// GERAR ARQUIVO CSV
-		Persistencia_csv pcsv = new Persistencia_csv();
 		pcsv.gerarArquivo(lista.getLista());
-		
-		//Persistencia_csv.gerarCsv(lista.getLista());
-		
 
 		// LEITURA ARQUIVOS PERSISTENCIA
 		List<Aluno> list = Persistencia_xml.lerXML();
