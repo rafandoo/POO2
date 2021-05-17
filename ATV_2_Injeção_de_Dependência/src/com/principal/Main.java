@@ -3,7 +3,7 @@ package com.principal;
 import com.persistencias.Persistencia_xml;
 import com.persistencias.Persistencia_json;
 import com.classes.Aluno;
-import com.classes.ListAlunos;
+import com.classes.ListAluno;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.persistencias.Controle_persistencia;
@@ -16,7 +16,7 @@ public class Main {
 	public static void main(String[] args) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
 
 		// INSTANCIAS
-		ListAlunos lista = new ListAlunos();
+		ListAluno lista = new ListAluno();
 		Aluno aluno = new Aluno();
 		
 		Persistencia p1 = new Persistencia_xml();
