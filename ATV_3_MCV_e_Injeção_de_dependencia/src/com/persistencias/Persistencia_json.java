@@ -1,5 +1,5 @@
 package com.persistencias;
 
-public class Persistencia_json {
+public class Persistencia_json implements Persistencia {
 
 }
