@@ -3,7 +3,7 @@ package com.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAlunos {
+public class ListAluno {
 
 	// INSTANCIA
 	List<Aluno> lista = new ArrayList<Aluno>();
