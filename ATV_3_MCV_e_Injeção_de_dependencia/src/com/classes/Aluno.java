@@ -1,9 +1,23 @@
 package com.classes;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 
 	// CONSTRUTORES
+	public Aluno() {
+		
+	}
 	
+	public Aluno(String nome) {
+		super(nome);
+	}
+	
+	public Aluno(String nome, int matricula, String cpf, String data_nascimento, String email) {
+		super(nome);
+		setMatricula(matricula);
+		setCpf(cpf);
+		setData_nascimento(data_nascimento);
+		setEmail(email);
+	}
 	
 	// ATRIBUTOS
 	private int matricula;
