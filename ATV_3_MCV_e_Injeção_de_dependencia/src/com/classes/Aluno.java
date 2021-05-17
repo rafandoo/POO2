@@ -63,7 +63,20 @@ public class Aluno extends Pessoa {
 	}
 	
 	// SAIDA
-
-
-
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ALUNO {");
+		builder.append(super.toString());
+		builder.append(", Matricula: ");
+		builder.append(matricula);
+		builder.append(", CPF: ");
+		builder.append(cpf);
+		builder.append(", Data de nascimento: ");
+		builder.append(data_nascimento);
+		builder.append(", Email: ");
+		builder.append(email);
+		builder.append("}");
+		return builder.toString();
+	}
 }
