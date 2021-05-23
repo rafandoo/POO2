@@ -24,6 +24,7 @@ public class Aluno extends Pessoa {
 	private String cpf;
 	private String data_nascimento;
 	private String email;
+	private Integer id;
 	
 	// GETTERS E SETTERS
 	public int getMatricula() {
@@ -62,6 +63,13 @@ public class Aluno extends Pessoa {
 		}
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	// SAIDA
 	@Override
 	public String toString() {
@@ -78,5 +86,21 @@ public class Aluno extends Pessoa {
 		builder.append(email);
 		builder.append("}");
 		return builder.toString();
+	}
+	
+	// HASH CODE E EQUALS
+	@Override
+	public boolean equals(Object o) {
+		if(this == o) return true;
+		if(o == null || getClass() != o.getClass()) return false;
+		
+		Aluno aluno = (Aluno) o;
+		
+		return id != null ? id.equals(aluno.id) : aluno.id == null;
+	}
+	
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
 	}
 }

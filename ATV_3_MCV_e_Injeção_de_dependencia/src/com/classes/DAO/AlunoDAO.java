@@ -13,7 +13,6 @@ public class AlunoDAO {
 	final String NOMEDATABELA = "aluno";
 	
 	// METODOS
-
 	public boolean inserir(Aluno aluno) {	
 		Connection conn = Conexao.getConexao();
 		String sql = "INSERT INTO `alunos`.`" + NOMEDATABELA + "` "
@@ -29,7 +28,19 @@ public class AlunoDAO {
             e.printStackTrace();
             return false;
 		}
-
+	}
+	
+	
+	
+	public boolean alterar(Aluno aluno) {
+		Connection conn = Conexao.getConexao();
+		String sql = "UPDATE `alunos`.`" + NOMEDATABELA + "` "
+				+ "SET `matricula` = '"+ aluno.getMatricula() +"', "
+					+ "`cpf` = '"+ aluno.getCpf() +"', "
+					+ "`dataNascimento` = '"+ aluno.getData_nascimento() +"', "
+					+ "`email` = '"+ aluno.getEmail() +"' "
+					+ "WHERE ();";
+		
 	}
 }
 //INSERT INTO `alunos`.`aluno` (`matricula`, `cpf`, `dataNascimento`, `email`) VALUES ('1', '108', '05063', 'tw');
