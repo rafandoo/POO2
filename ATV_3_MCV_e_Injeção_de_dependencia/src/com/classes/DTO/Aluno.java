@@ -1,4 +1,4 @@
-package com.classes;
+package com.classes.DTO;
 
 public class Aluno extends Pessoa {
 
