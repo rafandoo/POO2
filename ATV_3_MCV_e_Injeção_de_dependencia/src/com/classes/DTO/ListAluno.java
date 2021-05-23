@@ -1,4 +1,4 @@
-package com.classes;
+package com.classes.DTO;
 
 import java.util.ArrayList;
 import java.util.List;
