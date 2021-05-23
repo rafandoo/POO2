@@ -51,6 +51,10 @@ public class AlunoDAO {
 	}
 	
 	public static boolean alterar(Aluno aluno) {
+		if(aluno == null || aluno.getId() == null) {
+			System.out.println("Não foi possivel atualizar o registro!");
+			return false;
+		}
 		Connection conn = Conexao.getConexao();
 		String sql = "UPDATE `alunos`.`" + NOMEDATABELA + "` "
 				+ "SET `matricula` = '"+ aluno.getMatricula() +"', "
