@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.classes.Aluno;
+import com.classes.DTO.Aluno;
 import com.opencsv.CSVWriter;
 
 public class Persistencia_csv implements Persistencia {

@@ -14,7 +14,7 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
-import com.classes.Aluno;
+import com.classes.DTO.Aluno;
 
 import util.DataUtil;
 

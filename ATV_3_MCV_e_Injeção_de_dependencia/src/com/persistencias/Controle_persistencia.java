@@ -1,7 +1,8 @@
 package com.persistencias;
 
 import java.util.List;
-import com.classes.Aluno;
+
+import com.classes.DTO.Aluno;
 
 public class Controle_persistencia {
 
