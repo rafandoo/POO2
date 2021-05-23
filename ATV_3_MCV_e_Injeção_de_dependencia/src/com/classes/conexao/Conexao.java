@@ -1,5 +1,31 @@
 package com.classes.conexao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Conexao {
 
+	// ATRIBUTO
+	final static String NOME_DO_BANCO = "alunos";
+	
+	// METODOS
+	public static Connection getConexao() {
+		String url = "jdbc:mysql://localhost:3306/" + NOME_DO_BANCO;
+		String user = "root";
+		String password = "root";
+		
+		try {
+			/*Connection connection = DriverManager.getConnection(url, user, password);
+			System.out.println(connection);
+			return connection;*/
+			return DriverManager.getConnection(url, user, password);
+		} catch (SQLException e) {
+			System.err.println("Erro: " + e.toString());
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }
