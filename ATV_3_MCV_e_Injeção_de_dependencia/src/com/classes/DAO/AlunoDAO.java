@@ -10,10 +10,10 @@ import com.classes.conexao.Conexao;
 public class AlunoDAO {
 
 	// ATRIBUTO
-	final String NOMEDATABELA = "aluno";
+	final static String NOMEDATABELA = "aluno";
 	
 	// METODOS
-	public boolean inserir(Aluno aluno) {	
+	public static boolean inserir(Aluno aluno) {	
 		Connection conn = Conexao.getConexao();
 		String sql = "INSERT INTO `alunos`.`" + NOMEDATABELA + "` "
 				+ "(`matricula`, `cpf`, `dataNascimento`, `email`) "
@@ -30,19 +30,43 @@ public class AlunoDAO {
 		}
 	}
 	
+	public static boolean excluir(Aluno aluno) {
+		if(aluno == null || aluno.getId() == null) {
+			System.out.println("Não foi possivel apagar o registro!");
+			return false;
+		}
+		Connection conn = Conexao.getConexao();
+		String sql = "DELETE FROM `alunos`.`"+ NOMEDATABELA +"` "
+				+ "WHERE (`idAluno` = '"+ aluno.getId() +"');";
+		try {
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			Conexao.close(conn, stmt);
+			return true;
+		} catch (SQLException e) {
+            System.err.println("Erro: " + e.toString());
+            e.printStackTrace();
+            return false;
+		}
+	}
 	
-	
-	public boolean alterar(Aluno aluno) {
+	public static boolean alterar(Aluno aluno) {
 		Connection conn = Conexao.getConexao();
 		String sql = "UPDATE `alunos`.`" + NOMEDATABELA + "` "
 				+ "SET `matricula` = '"+ aluno.getMatricula() +"', "
 					+ "`cpf` = '"+ aluno.getCpf() +"', "
 					+ "`dataNascimento` = '"+ aluno.getData_nascimento() +"', "
 					+ "`email` = '"+ aluno.getEmail() +"' "
-					+ "WHERE ();";
-		
+					+ "WHERE (`idAluno` = '"+ aluno.getId() +"');";
+		try {
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			Conexao.close(conn, stmt);
+			return true;
+		} catch (SQLException e) {
+            System.err.println("Erro: " + e.toString());
+            e.printStackTrace();
+            return false;
+		}
 	}
 }
-//INSERT INTO `alunos`.`aluno` (`matricula`, `cpf`, `dataNascimento`, `email`) VALUES ('1', '108', '05063', 'tw');
-
-//UPDATE `alunos`.`aluno` SET `matricula` = '202006201' WHERE (`idAluno` = '1');
