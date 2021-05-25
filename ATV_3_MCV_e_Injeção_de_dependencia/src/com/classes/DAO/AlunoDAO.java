@@ -90,8 +90,7 @@ public class AlunoDAO {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			if(rs.next()) {
-					Conexao.close(conn, stmt);
-					rs.close();
+					Conexao.close(conn, stmt, rs);
 					return true;
 			} else {
 				Conexao.close(conn, stmt);
@@ -121,8 +120,7 @@ public class AlunoDAO {
 					aux.setCpf(rs.getString(3));
 					aux.setData_nascimento(rs.getString(4));
 					aux.setEmail(rs.getString(5));
-					Conexao.close(conn, stmt);
-					rs.close();
+					Conexao.close(conn, stmt, rs);
 					return aux;
 			} else {
 				Conexao.close(conn, stmt);
@@ -143,8 +141,7 @@ public class AlunoDAO {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			List<Aluno> list_aluno = buildList(rs);
-			Conexao.close(conn, stmt);
-			rs.close();
+			Conexao.close(conn, stmt, rs);
 			return list_aluno;
 		} catch (SQLException e) {
             System.err.println("Erro: " + e.toString());
