@@ -7,7 +7,9 @@ public class Test {
 
 	public static void main(String []args) {
 
-		inserir();
+		Aluno aluno = new Aluno();
+		aluno.setId(2);
+		AlunoDAO.delete(aluno);
 	}
 	
 	public static void inserir() {

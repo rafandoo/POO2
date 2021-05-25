@@ -2,6 +2,7 @@ package principal;
 
 import com.persistencias.Persistencia_xml;
 import com.persistencias.Persistencia_json;
+import com.classes.BO.AlunoBO;
 import com.classes.DTO.Aluno;
 import com.classes.DTO.ListAluno;
 import com.classes.conexao.Conexao;
@@ -9,6 +10,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.persistencias.Controle_persistencia;
 import com.persistencias.Persistencia;
+import com.persistencias.Persistencia_BD;
 import com.persistencias.Persistencia_csv;
 import java.io.IOException;
 import java.sql.Connection;
@@ -31,6 +33,8 @@ public class Main {
 		Persistencia p3 = new Persistencia_json();
 		Controle_persistencia cp3 = new Controle_persistencia(p3);
 	
+		Persistencia p4 = new Persistencia_BD();
+		Controle_persistencia cp4 = new Controle_persistencia(p4);
 		
 		// INSERSÂO DE DADOS
 		aluno.setNome("Rafael");
@@ -64,10 +68,11 @@ public class Main {
 		aluno.setEmail("josi.camargo@hotmail.com");
 		lista.inserir(aluno);
 
-		// GERAR ARQUIVO XML, CSV, JSON
+		// GERAR ARQUIVO XML, CSV, JSON, BD
 		cp1.gerarPersistencia(lista.getLista());
 		cp2.gerarPersistencia(lista.getLista());
 		cp3.gerarPersistencia(lista.getLista());
+		cp4.gerarPersistencia(lista.getLista());
 
 		System.out.println(lista.getLista().toString());
 		

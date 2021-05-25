@@ -4,16 +4,13 @@ import java.util.List;
 
 import com.classes.DAO.AlunoDAO;
 import com.classes.DTO.Aluno;
-import com.persistencias.Persistencia;
 
-public class AlunoBO implements Persistencia {
+public class AlunoBO {
 
-	public boolean gerarPersistencia(List<Aluno> aluno) {
+	public boolean inserir(Aluno aluno) {
 		try {
-			for(int i = 0; i < aluno.size(); i++) {
-				if(existe(aluno.get(i)) != true) {
-					AlunoDAO.insert(aluno.get(i));
-				}
+			if(existe(aluno) != true) {
+				AlunoDAO.insert(aluno);
 			}
 			return true;
 		} catch (Exception e) {
