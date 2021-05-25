@@ -2,6 +2,7 @@ package com.classes.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -44,6 +45,18 @@ public class Conexao {
 		try {
 			if(stmt != null) {
 				stmt.close();
+			}
+		} catch (SQLException e) {
+			System.err.println("Erro: " + e.toString());
+			e.printStackTrace();
+		}
+	}
+	
+	public static void close(Connection conn, Statement stmt, ResultSet rs) {
+		close(conn, stmt);
+		try {
+			if(rs != null) {
+				rs.close();
 			}
 		} catch (SQLException e) {
 			System.err.println("Erro: " + e.toString());
