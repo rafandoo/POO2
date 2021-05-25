@@ -78,13 +78,40 @@ public class AlunoDAO {
 		}
 	}
 	
+	public static boolean exist(Aluno aluno) {
+		if(aluno == null || aluno.getMatricula() == 0) {
+			return false;
+		}
+		Connection conn = Conexao.getConexao();
+		String sql = "SELECT * FROM "+ NOMEDOBANCO +"."+ NOMEDATABELA
+				+ " where matricula = "+ aluno.getMatricula() +";";
+		
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+					Conexao.close(conn, stmt);
+					rs.close();
+					return true;
+			} else {
+				Conexao.close(conn, stmt);
+				rs.close();
+				return false;
+			}
+		} catch (SQLException e) {
+            System.err.println("Erro: " + e.toString());
+            e.printStackTrace();
+            return false;
+		}
+	}
+	
 	public static Aluno selectMatricula(Aluno aluno) {
 		if(aluno == null || aluno.getMatricula() == 0) {
 			return null;
 		}
 		Connection conn = Conexao.getConexao();
 		String sql = "SELECT * FROM "+ NOMEDOBANCO +"."+ NOMEDATABELA
-				+ "WHERE matricula = " + aluno.getMatricula() + ";";
+				+ " WHERE matricula = " + aluno.getMatricula() + ";";
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
