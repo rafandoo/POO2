@@ -174,6 +174,5 @@ public class AlunoDAO {
             e.printStackTrace();
             return null;
 		}
-	}
-		
+	}	
 }

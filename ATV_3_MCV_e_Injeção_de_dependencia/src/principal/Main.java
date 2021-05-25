@@ -2,10 +2,8 @@ package principal;
 
 import com.persistencias.Persistencia_xml;
 import com.persistencias.Persistencia_json;
-import com.classes.BO.AlunoBO;
 import com.classes.DTO.Aluno;
 import com.classes.DTO.ListAluno;
-import com.classes.conexao.Conexao;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.persistencias.Controle_persistencia;
@@ -13,9 +11,8 @@ import com.persistencias.Persistencia;
 import com.persistencias.Persistencia_BD;
 import com.persistencias.Persistencia_csv;
 import java.io.IOException;
-import java.sql.Connection;
 
-@SuppressWarnings("unused")
+
 public class Main {
 
 	public static void main(String[] args) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
@@ -75,7 +72,6 @@ public class Main {
 		cp4.gerarPersistencia(lista.getLista());
 
 		System.out.println(lista.getLista().toString());
-		
 		
 	}
 }
