@@ -2,6 +2,7 @@ package principal;
 
 import com.persistencias.Persistencia_xml;
 import com.persistencias.Persistencia_json;
+import com.classes.BO.AlunoBO;
 import com.classes.DTO.Aluno;
 import com.classes.DTO.ListAluno;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -10,6 +11,7 @@ import com.persistencias.Controle_persistencia;
 import com.persistencias.Persistencia;
 import com.persistencias.Persistencia_BD;
 import com.persistencias.Persistencia_csv;
+
 import java.io.IOException;
 
 
@@ -71,7 +73,32 @@ public class Main {
 		cp3.gerarPersistencia(lista.getLista());
 		cp4.gerarPersistencia(lista.getLista());
 
+		// TESTE DE LEITURA
+		System.out.println("== LISTA ALUNOS ==");
 		System.out.println(lista.getLista().toString());
+		System.out.print("\n");
+		
+		System.out.println("== PERSISTENCIA XML ==");
+		Persistencia_xml pxml = new Persistencia_xml();
+		System.out.print(pxml.lerXML());
+		System.out.print("\n");
+		
+		System.out.println("== PERSISTENCIA CSV ==");
+		Persistencia_csv pcsv = new Persistencia_csv();
+		System.out.print(pcsv.lerCsv());
+		System.out.print("\n");
+		
+		System.out.println("== PERSISTENCIA JSON ==");
+		Persistencia_json pjson = new Persistencia_json();
+		System.out.print(pjson.lerJson());
+		System.out.print("\n");
+		
+		System.out.println("== PERSISTENCIA BD ==");
+		AlunoBO aBO = new AlunoBO();
+		System.out.print(aBO.mostrarTodos().toString());
+		System.out.print("\n");
+		
+		
 		
 	}
 }
