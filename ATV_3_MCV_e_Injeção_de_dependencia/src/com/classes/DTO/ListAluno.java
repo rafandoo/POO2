@@ -13,7 +13,7 @@ public class ListAluno {
 		return lista;
 	}
 	
-	// METOD
+	// METODO
 	public boolean inserir(Aluno aluno) {
 		return(lista.add(aluno));
 	}

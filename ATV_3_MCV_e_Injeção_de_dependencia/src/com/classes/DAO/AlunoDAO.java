@@ -134,7 +134,7 @@ public class AlunoDAO {
 		}
 	}
 	
-	public static List<Aluno> selectAll(){
+	public static List<Aluno> selectAll() {
 		Connection conn = Conexao.getConexao();
         String sql = "SELECT * FROM " + NOMEDOBANCO +"."+ NOMEDATABELA + ";";
         try {

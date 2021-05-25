@@ -19,6 +19,15 @@ public class Aluno extends Pessoa {
 		setEmail(email);
 	}
 	
+	public Aluno(String nome, int matricula, String cpf, String data_nascimento, String email, Integer id) {
+		super(nome);
+		setMatricula(matricula);
+		setCpf(cpf);
+		setData_nascimento(data_nascimento);
+		setEmail(email);
+		setId(id);
+	}
+	
 	// ATRIBUTOS
 	private int matricula;
 	private String cpf;

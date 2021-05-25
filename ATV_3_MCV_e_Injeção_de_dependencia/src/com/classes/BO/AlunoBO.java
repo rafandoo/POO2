@@ -6,7 +6,7 @@ import com.classes.DAO.AlunoDAO;
 import com.classes.DTO.Aluno;
 import com.persistencias.Persistencia;
 
-public class AlunoBO implements Persistencia{
+public class AlunoBO implements Persistencia {
 
 	public boolean gerarArquivo(List<Aluno> aluno) {
 		try {
