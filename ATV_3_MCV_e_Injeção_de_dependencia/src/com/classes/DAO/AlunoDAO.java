@@ -136,7 +136,7 @@ public class AlunoDAO {
 		}
 	}
 	
-	public List<Aluno> selectAll(){
+	public static List<Aluno> selectAll(){
 		Connection conn = Conexao.getConexao();
         String sql = "SELECT * FROM " + NOMEDOBANCO +"."+ NOMEDATABELA + ";";
         try {
@@ -153,7 +153,7 @@ public class AlunoDAO {
 		}
 	}
 
-	private List<Aluno> buildList(ResultSet rs) {
+	private static List<Aluno> buildList(ResultSet rs) {
 		List<Aluno> list_aluno = new ArrayList<Aluno>();
 		try {
 			while(rs.next()) {
