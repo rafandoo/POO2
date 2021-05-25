@@ -13,6 +13,7 @@ import com.persistencias.Persistencia_csv;
 import java.io.IOException;
 import java.sql.Connection;
 
+@SuppressWarnings("unused")
 public class Main {
 
 	public static void main(String[] args) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
@@ -70,7 +71,6 @@ public class Main {
 
 		System.out.println(lista.getLista().toString());
 		
-		Connection conn = Conexao.getConexao();
 		
 	}
 }
