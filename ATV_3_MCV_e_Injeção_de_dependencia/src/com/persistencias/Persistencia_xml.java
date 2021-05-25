@@ -76,7 +76,7 @@ public class Persistencia_xml implements Persistencia {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List<Aluno> lerXML() {
+	public String lerXML() {
 		List<Aluno> lista_aluno = new ArrayList<Aluno>();
 		Document documento = null;
 		SAXBuilder builder = new SAXBuilder();
@@ -100,6 +100,11 @@ public class Persistencia_xml implements Persistencia {
 			aluno.setEmail(element.getChildText("email"));
 			lista_aluno.add(aluno);
 		}
-		return lista_aluno;
+		String msg = "";
+		for (Iterator<Aluno> iterator = lista_aluno.iterator(); iterator.hasNext();) {
+			Aluno al = (Aluno) iterator.next();
+			msg += al.toString() + "\n";
+		}
+		return (msg);
 	}
 }
