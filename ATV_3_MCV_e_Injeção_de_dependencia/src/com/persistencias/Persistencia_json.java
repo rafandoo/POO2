@@ -25,7 +25,7 @@ public class Persistencia_json implements Persistencia {
 	Gson gson = builder.create();
 
 	// METODOS
-	public boolean gerarArquivo(List<Aluno> aluno) {
+	public boolean gerarPersistencia(List<Aluno> aluno) {
 		FileWriter writer;
 		try {
 			writer = new FileWriter(LOCALHOST);

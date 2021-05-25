@@ -8,7 +8,7 @@ import com.persistencias.Persistencia;
 
 public class AlunoBO implements Persistencia {
 
-	public boolean gerarArquivo(List<Aluno> aluno) {
+	public boolean gerarPersistencia(List<Aluno> aluno) {
 		try {
 			for(int i = 0; i < aluno.size(); i++) {
 				if(existe(aluno.get(i)) != true) {

@@ -25,7 +25,7 @@ public class Persistencia_xml implements Persistencia {
 	final static String LOCALHOST = "xml/";
 		
 	// METODOS
-	public boolean gerarArquivo(List<Aluno> lista) {
+	public boolean gerarPersistencia(List<Aluno> lista) {
 		Element config = new Element("Alunos");
 		Document documento = new Document(config);
 			

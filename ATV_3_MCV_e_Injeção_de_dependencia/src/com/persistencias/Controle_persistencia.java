@@ -16,6 +16,6 @@ public class Controle_persistencia {
 	
 	// METODO
 	public boolean gerarPersistencia(List<Aluno> aluno) {
-		return this.persistencia.gerarArquivo(aluno);
+		return this.persistencia.gerarPersistencia(aluno);
 	}
 }

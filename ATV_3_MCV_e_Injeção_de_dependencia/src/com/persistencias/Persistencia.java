@@ -6,6 +6,6 @@ import com.classes.DTO.Aluno;
 
 public interface Persistencia {
 	
-	public boolean gerarArquivo(List<Aluno> aluno);
+	public boolean gerarPersistencia(List<Aluno> aluno);
 
 }

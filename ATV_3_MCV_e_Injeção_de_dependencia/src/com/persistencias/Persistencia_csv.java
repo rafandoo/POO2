@@ -14,7 +14,7 @@ public class Persistencia_csv implements Persistencia {
 	
 	// METODO
 	@SuppressWarnings("resource")
-	public boolean gerarArquivo(List<Aluno> aluno) {
+	public boolean gerarPersistencia(List<Aluno> aluno) {
 		try {
 			FileWriter fileWriter = new FileWriter(LOCALHOST);
 			CSVWriter csvWriter = new CSVWriter(fileWriter);
