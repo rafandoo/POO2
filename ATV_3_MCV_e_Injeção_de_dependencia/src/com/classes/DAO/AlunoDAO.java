@@ -20,8 +20,12 @@ public class AlunoDAO {
 	public static boolean insert(Aluno aluno) {	
 		Connection conn = Conexao.getConexao();
 		String sql = "INSERT INTO `"+ NOMEDOBANCO +"`.`"+ NOMEDATABELA +"` "
-				+ "(`matricula`, `cpf`, `dataNascimento`, `email`) "
-				+ "VALUES ('"+ aluno.getMatricula() +"', '"+ aluno.getCpf() +"', '"+ aluno.getData_nascimento() +"' , '"+ aluno.getEmail() +"');";
+				+ "(`matricula`, `cpf`, `dataNascimento`, `email`, `nome`) "
+				+ "VALUES ('"+ aluno.getMatricula() +"', '"
+				+ aluno.getCpf() +"', '"
+				+ aluno.getData_nascimento() +"' , '"
+				+ aluno.getEmail() +"' , '"
+				+ aluno.getNome() +"');";
 		try {
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -65,6 +69,7 @@ public class AlunoDAO {
 					+ "`cpf` = '"+ aluno.getCpf() +"', "
 					+ "`dataNascimento` = '"+ aluno.getData_nascimento() +"', "
 					+ "`email` = '"+ aluno.getEmail() +"' "
+					+ "`nome` = '"+ aluno.getNome() +"' "
 					+ "WHERE (`idAluno` = '"+ aluno.getId() +"');";
 		try {
 			Statement stmt = conn.createStatement();
@@ -120,6 +125,7 @@ public class AlunoDAO {
 					aux.setCpf(rs.getString(3));
 					aux.setData_nascimento(rs.getString(4));
 					aux.setEmail(rs.getString(5));
+					aux.setNome(rs.getString(6));
 					Conexao.close(conn, stmt, rs);
 					return aux;
 			} else {
@@ -159,6 +165,7 @@ public class AlunoDAO {
 				aluno.setCpf(rs.getString(3));
 				aluno.setData_nascimento(rs.getString(4));
 				aluno.setEmail(rs.getString(5));
+				aluno.setNome(rs.getString(6));
 				list_aluno.add(aluno);
 			}
 			return list_aluno;
