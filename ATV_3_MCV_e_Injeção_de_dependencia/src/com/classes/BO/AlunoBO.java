@@ -34,6 +34,12 @@ public class AlunoBO implements Persistencia{
 	public boolean existe(Aluno aluno) {
 		return AlunoDAO.exist(aluno);
 	}
-
 	
+	public Aluno procurarMatricula(Aluno aluno) {
+		return AlunoDAO.selectMatricula(aluno);
+	}
+
+	public List<Aluno> mostrarTodos() {
+		return AlunoDAO.selectAll();
+	}	
 }
