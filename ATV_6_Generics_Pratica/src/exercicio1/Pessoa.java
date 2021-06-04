@@ -34,5 +34,17 @@ public class Pessoa {
 			this.idade = idade;
 		}
 	}
-	
+
+	// SAIDA
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pessoa [nome: ");
+		builder.append(nome);
+		builder.append(", idade: ");
+		builder.append(idade);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }
