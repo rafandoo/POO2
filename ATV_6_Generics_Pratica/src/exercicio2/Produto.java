@@ -23,28 +23,36 @@ public class Produto<T> {
 		return produto;
 	}
 	public void setProduto(String produto) {
-		this.produto = produto;
+		if(produto.length() > 0) {
+			this.produto = produto;
+		}
 	}
 	
 	public double getValor() {
 		return valor;
 	}
 	public void setValor(double valor) {
-		this.valor = valor;
+		if(valor > 0) {
+			this.valor = valor;
+		}
 	}
 	
 	public String getDataFabricacao() {
 		return dataFabricacao;
 	}
 	public void setDataFabricacao(String dataFabricacao) {
-		this.dataFabricacao = dataFabricacao;
+		if(dataFabricacao.length() > 0) {
+			this.dataFabricacao = dataFabricacao;
+		}
 	}
 	
 	public String getDataVencimento() {
 		return dataVencimento;
 	}
 	public void setDataVencimento(String dataVencimento) {
-		this.dataVencimento = dataVencimento;
+		if(dataVencimento.length() > 0) {
+			this.dataVencimento = dataVencimento;
+		}
 	}
 	
 	// SAIDA
