@@ -3,6 +3,17 @@ package exercicio2;
 public class Produto<T> {
 	
 	// CONSTRUTORES
+	public Produto() {
+		
+	}
+	
+	public Produto(T id, String produto, double valor, String dataFabricacao, String dataVencimento) {
+		setId(id);
+		setProduto(produto);
+		setValor(valor);
+		setDataFabricacao(dataFabricacao);
+		setDataVencimento(dataVencimento);	
+	}
 	
 	// ATRIBUTOS
 	private T id;
