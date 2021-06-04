@@ -6,9 +6,10 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public class ListElemento {
 
-
+	// INSTANCIA
 	private List<Elemento> lista = new ArrayList<Elemento>();
 	
+	// METODOS
 	public boolean inserir(Elemento elemento) {
 		if (!existeChave(elemento)) {
 			return lista.add(elemento);
@@ -16,8 +17,8 @@ public class ListElemento {
 			return false;
 		}
 	}
-	
-	public Elemento busca(String chave) {
+
+	public Elemento buscaChave(String chave) {
 		for (Elemento elemento : lista) {
 			if(chave.equals(elemento.getChave())) {
 				return elemento;
@@ -34,6 +35,5 @@ public class ListElemento {
 		}
 		return false;
 	}
-	
 	
 }
