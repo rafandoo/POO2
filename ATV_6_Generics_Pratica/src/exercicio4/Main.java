@@ -8,7 +8,6 @@ public class Main {
 		Elemento<String> e2 = new Elemento<String>("rafael", "6");
 		Elemento<String> e3 = new Elemento<String>("6", "rafael");
 				
-		
 		ListElemento lista = new ListElemento();
 		
 		System.out.println(lista.inserir(e1));
