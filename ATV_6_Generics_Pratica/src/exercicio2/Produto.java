@@ -1,5 +1,5 @@
 package exercicio2;
 
-public class Produto {
+public class Produto<T> {
 
 }
