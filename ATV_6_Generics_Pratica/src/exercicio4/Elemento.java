@@ -1,22 +1,22 @@
 package exercicio4;
 
-public class Elemento<K, V> {
+public class Elemento<V> {
 
-	// CONSTRUTORES
-	public Elemento(K chave, V valor) {
+	// CONSTRUTOR
+	public Elemento(String chave, V valor) {
 		setChave(chave);
 		setValor(valor);
 	}
 	
 	// ATRIBUTOS
-	private K chave;
+	private String chave;
 	private V valor;
 	
 	// GETTERS E SETTERS
-	public K getChave() {
+	public String getChave() {
 		return chave;
 	}
-	public void setChave(K chave) {
+	public void setChave(String chave) {
 		this.chave = chave;
 	}
 	
