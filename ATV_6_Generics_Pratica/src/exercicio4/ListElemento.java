@@ -16,6 +16,37 @@ public class ListElemento {
 	
 	// METODOS
 	public boolean inserir(Elemento elemento) {
-		return lista.add(elemento);
+		if(equals(elemento.getChave())) {
+			return lista.add(elemento);
+		}
+		return false;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((lista == null) ? 0 : lista.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ListElemento other = (ListElemento) obj;
+		if (lista == null) {
+			if (other.lista != null)
+				return false;
+		} else if (!lista.equals(other.lista))
+			return false;
+		return true;
+	}
+	
+	
+	
 }
