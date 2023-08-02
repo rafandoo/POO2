@@ -4,8 +4,6 @@ import com.classes.BO.*;
 import com.classes.DTO.*;
 import com.classes.service.MatriculaService;
 
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -111,6 +109,7 @@ public class Main {
         System.out.println();
         abo.getMatriculasDoAluno(aluno2, ms);
         System.out.println();
+        System.out.println("Coordenador: " + coordenador.getProfessor().getNome());
         cbo.estruturaCurso(bcc);
         System.out.println();
         dobo.mostrarProfessores(disciplinaOfertada3);

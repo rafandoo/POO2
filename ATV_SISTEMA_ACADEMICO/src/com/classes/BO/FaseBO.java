@@ -13,4 +13,14 @@ public class FaseBO {
     public void adicionarDisciplina(Fase fase, DisciplinaOfertada disciplinaOfertada) {
     	fase.addDisciplinaOfertada(disciplinaOfertada);
     }
+
+    public void estruturaFase(Fase fase) {
+    	System.out.println("Fase: " + fase.getCodigo());
+    	for (int i = 0; i < fase.getDisciplinas().size(); i++) {
+    		System.out.println("    Disciplina: " +
+                    fase.getDisciplinas().get(i).getDisciplina().getCodigo() +
+                    " - " +
+                    fase.getDisciplinas().get(i).getDisciplina().getNome());
+    	}
+    }
 }
