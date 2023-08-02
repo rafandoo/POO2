@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/dev/IFC - BCC/POOII/ATV_SISTEMA_ACADEMICO/src</OriginalElement>
+  <nodes>
+    <node x="1916.251651982379" y="269.0">com.classes.DTO.Disciplina</node>
+    <node x="2138.876651982379" y="642.5">com.classes.BO.DisciplinaBO</node>
+    <node x="406.79845814977966" y="2015.0">com.classes.DTO.Avaliacao</node>
+    <node x="722.7984581497797" y="2158.5">com.classes.BO.MatriculaBO</node>
+    <node x="409.29845814977966" y="2455.0">com.classes.BO.AvaliacaoBO</node>
+    <node x="1509.9234581497797" y="1137.0">com.classes.DTO.Curso</node>
+    <node x="279.0" y="1433.0">com.classes.DTO.Coordenador</node>
+    <node x="32.79845814977966" y="2455.0">com.classes.BO.FrequenciaBO</node>
+    <node x="54.79845814977966" y="2015.0">com.classes.DTO.Frequencia</node>
+    <node x="1521.4234581497797" y="1488.5">com.classes.BO.CursoBO</node>
+    <node x="1771.251651982379" y="565.0">com.classes.DTO.DisciplinaOfertada</node>
+    <node x="1887.876651982379" y="906.5">com.classes.BO.DisciplinaOfertadaBO</node>
+    <node x="1691.9234581497797" y="1203.5">com.classes.BO.FaseBO</node>
+    <node x="949.7984581497797" y="1774.0">com.classes.service.MatriculaService</node>
+    <node x="1025.5" y="2628.0">com.classes.Main</node>
+    <node x="1288.7984581497797" y="1774.5">com.classes.BO.AlunoBO</node>
+    <node x="637.7984581497797" y="1719.0">com.classes.DTO.Matricula</node>
+    <node x="307.0" y="1808.0">com.classes.BO.CoordenadorBO</node>
+    <node x="185.12665198237892" y="302.0">com.classes.DTO.Professor</node>
+    <node x="675.0016519823789" y="-15.0">com.classes.DTO.Pessoa</node>
+    <node x="1167.376651982379" y="1433.0">com.classes.DTO.Aluno</node>
+    <node x="-97.0" y="642.5">com.classes.BO.ProfessorBO</node>
+    <node x="1565.251651982379" y="851.0">com.classes.DTO.Fase</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.classes.DTO.Avaliacao" target="com.classes.DTO.Matricula" relationship="TO_ONE">
+      <point x="0.0" y="-193.0" />
+      <point x="554.7984581497797" y="1983.0" />
+      <point x="540.25" y="1983.0" />
+      <point x="540.25" y="1973.0" />
+      <point x="710.7984581497797" y="1973.0" />
+      <point x="-73.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.service.MatriculaService" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="1109.2984581497797" y="2602.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="com.classes.DTO.Curso" target="com.classes.DTO.Fase" relationship="TO_MANY">
+      <point x="0.0" y="-116.0" />
+      <point x="1590.9234581497797" y="1110.0" />
+      <point x="1639.501651982379" y="1110.0" />
+      <point x="-74.25" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.DisciplinaBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="2231.376651982379" y="2602.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="com.classes.DTO.Frequencia" target="com.classes.DTO.Professor" relationship="TO_ONE">
+      <point x="0.0" y="-193.0" />
+      <point x="209.29845814977966" y="1983.0" />
+      <point x="200.0" y="1983.0" />
+      <point x="200.0" y="543.0" />
+      <point x="470.6266519823789" y="543.0" />
+      <point x="470.6266519823789" y="523.0" />
+      <point x="332.8766519823789" y="523.0" />
+      <point x="49.25" y="83.0" />
+    </edge>
+    <edge source="com.classes.BO.AlunoBO" target="com.classes.DTO.Aluno" relationship="CREATE">
+      <point x="0.0" y="-60.5" />
+      <point x="1452.2984581497797" y="1697.0" />
+      <point x="1330.126651982379" y="1697.0" />
+      <point x="54.25" y="116.0" />
+    </edge>
+    <edge source="com.classes.DTO.Professor" target="com.classes.DTO.Pessoa" relationship="GENERALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="283.6266519823789" y="243.0" />
+      <point x="757.0016519823789" y="243.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.DTO.Matricula" target="com.classes.DTO.DisciplinaOfertada" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="783.7984581497797" y="829.0" />
+      <point x="1713.751651982379" y="829.0" />
+      <point x="1713.751651982379" y="819.0" />
+      <point x="1826.251651982379" y="819.0" />
+      <point x="-55.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.AlunoBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="1452.2984581497797" y="2602.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.MatriculaBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="856.7984581497797" y="2602.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.classes.DTO.Coordenador" target="com.classes.DTO.Curso" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="387.0" y="1401.0" />
+      <point x="1270.626651982379" y="1401.0" />
+      <point x="1270.626651982379" y="1391.0" />
+      <point x="1550.4234581497797" y="1391.0" />
+      <point x="-40.5" y="116.0" />
+    </edge>
+    <edge source="com.classes.BO.FrequenciaBO" target="com.classes.DTO.Frequencia" relationship="CREATE">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="193.0" />
+    </edge>
+    <edge source="com.classes.DTO.DisciplinaOfertada" target="com.classes.DTO.Disciplina" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="1881.251651982379" y="543.0" />
+      <point x="1956.751651982379" y="543.0" />
+      <point x="-40.5" y="116.0" />
+    </edge>
+    <edge source="com.classes.service.MatriculaService" target="com.classes.DTO.Aluno" relationship="TO_MANY">
+      <point x="0.0" y="-61.0" />
+      <point x="1109.2984581497797" y="1687.0" />
+      <point x="1221.626651982379" y="1687.0" />
+      <point x="-54.25" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.FrequenciaBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="209.29845814977966" y="2602.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.CursoBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="1631.4234581497797" y="2602.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="com.classes.BO.FaseBO" target="com.classes.DTO.Fase" relationship="CREATE">
+      <point x="0.0" y="-49.5" />
+      <point x="1846.4234581497797" y="1110.0" />
+      <point x="1788.001651982379" y="1110.0" />
+      <point x="74.25" y="116.0" />
+    </edge>
+    <edge source="com.classes.BO.CursoBO" target="com.classes.DTO.Curso" relationship="CREATE">
+      <point x="0.0" y="-60.5" />
+      <point x="40.5" y="116.0" />
+    </edge>
+    <edge source="com.classes.BO.AvaliacaoBO" target="com.classes.DTO.Avaliacao" relationship="CREATE">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="193.0" />
+    </edge>
+    <edge source="com.classes.BO.CoordenadorBO" target="com.classes.DTO.Coordenador" relationship="CREATE">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.BO.MatriculaBO" target="com.classes.DTO.Matricula" relationship="CREATE">
+      <point x="0.0" y="-49.5" />
+      <point x="73.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.AvaliacaoBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="554.7984581497797" y="2602.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="com.classes.DTO.DisciplinaOfertada" target="com.classes.DTO.Professor" relationship="TO_MANY">
+      <point x="0.0" y="-116.0" />
+      <point x="1881.251651982379" y="533.0" />
+      <point x="470.6266519823789" y="533.0" />
+      <point x="470.6266519823789" y="523.0" />
+      <point x="332.8766519823789" y="523.0" />
+      <point x="49.25" y="83.0" />
+    </edge>
+    <edge source="com.classes.DTO.Avaliacao" target="com.classes.DTO.Professor" relationship="TO_ONE">
+      <point x="0.0" y="-193.0" />
+      <point x="554.7984581497797" y="1993.0" />
+      <point x="560.0484581497797" y="1993.0" />
+      <point x="560.0484581497797" y="543.0" />
+      <point x="470.6266519823789" y="543.0" />
+      <point x="470.6266519823789" y="523.0" />
+      <point x="332.8766519823789" y="523.0" />
+      <point x="49.25" y="83.0" />
+    </edge>
+    <edge source="com.classes.BO.ProfessorBO" target="com.classes.DTO.Professor" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="13.0" y="533.0" />
+      <point x="234.37665198237892" y="533.0" />
+      <point x="-49.25" y="83.0" />
+    </edge>
+    <edge source="com.classes.DTO.Fase" target="com.classes.DTO.DisciplinaOfertada" relationship="TO_MANY">
+      <point x="0.0" y="-116.0" />
+      <point x="1713.751651982379" y="819.0" />
+      <point x="1826.251651982379" y="819.0" />
+      <point x="-55.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.BO.DisciplinaOfertadaBO" target="com.classes.DTO.DisciplinaOfertada" relationship="CREATE">
+      <point x="0.0" y="-60.5" />
+      <point x="2054.376651982379" y="829.0" />
+      <point x="1936.251651982379" y="829.0" />
+      <point x="55.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.DisciplinaOfertadaBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="2054.376651982379" y="2602.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.FaseBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="1846.4234581497797" y="2602.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.classes.DTO.Aluno" target="com.classes.DTO.Curso" relationship="TO_ONE">
+      <point x="-54.25" y="-116.0" />
+      <point x="1221.626651982379" y="1411.0" />
+      <point x="1270.626651982379" y="1411.0" />
+      <point x="1270.626651982379" y="1391.0" />
+      <point x="1550.4234581497797" y="1391.0" />
+      <point x="-40.5" y="116.0" />
+    </edge>
+    <edge source="com.classes.DTO.Matricula" target="com.classes.DTO.Aluno" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="783.7984581497797" y="1697.0" />
+      <point x="1109.2984581497797" y="1697.0" />
+      <point x="1109.2984581497797" y="1687.0" />
+      <point x="1221.626651982379" y="1687.0" />
+      <point x="-54.25" y="116.0" />
+    </edge>
+    <edge source="com.classes.BO.DisciplinaBO" target="com.classes.DTO.Disciplina" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="2231.376651982379" y="543.0" />
+      <point x="2037.751651982379" y="543.0" />
+      <point x="40.5" y="116.0" />
+    </edge>
+    <edge source="com.classes.DTO.Aluno" target="com.classes.DTO.Pessoa" relationship="GENERALIZATION">
+      <point x="54.25" y="-116.0" />
+      <point x="1330.126651982379" y="1411.0" />
+      <point x="1281.126651982379" y="1411.0" />
+      <point x="1281.126651982379" y="243.0" />
+      <point x="757.0016519823789" y="243.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.DTO.Coordenador" target="com.classes.DTO.Professor" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="387.0" y="543.0" />
+      <point x="470.6266519823789" y="543.0" />
+      <point x="470.6266519823789" y="523.0" />
+      <point x="332.8766519823789" y="523.0" />
+      <point x="49.25" y="83.0" />
+    </edge>
+    <edge source="com.classes.DTO.Frequencia" target="com.classes.DTO.Matricula" relationship="TO_ONE">
+      <point x="0.0" y="-193.0" />
+      <point x="209.29845814977966" y="1993.0" />
+      <point x="540.25" y="1993.0" />
+      <point x="540.25" y="1973.0" />
+      <point x="710.7984581497797" y="1973.0" />
+      <point x="-73.0" y="116.0" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.ProfessorBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="13.0" y="2602.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="com.classes.Main" target="com.classes.BO.CoordenadorBO" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="1100.0" y="2602.0" />
+      <point x="396.29845814977966" y="2602.0" />
+      <point x="396.29845814977966" y="1983.0" />
+      <point x="387.0" y="1983.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="1123.5000000000005" y="1355.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
